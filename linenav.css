@@ -1,0 +1,20 @@
+
+.line:after {
+  display:block;     
+  content: '';
+  border-bottom: solid 3px #38A4A6;  
+  transform: scaleX(0);  
+  transition: transform 353ms ease;
+}
+.line:hover:after { transform: scaleX(1); }
+.line.fromRight:after{ transform-origin:100% 50%; }
+.line.fromLeft:after{  transform-origin:  0% 50%; }
+
+/* .nav-links a:hover{
+  color: #38A4A6;
+} */
+
+
+.lastfooterleft{
+  gap: 14px;
+}

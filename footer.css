@@ -1,0 +1,12 @@
+@media (max-width:500px) {
+    .upperright h4{
+        font-size: inherit;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .upperright h1 {
+        font-size: 5vw;
+    }
+}

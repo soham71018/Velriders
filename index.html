@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home-VELRIDERS</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <link rel="stylesheet" href="style.css">
+   <link rel="stylesheet" href="linenav.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li class="line"><a  style="color:#38A4A6 ; font-weight: 500;" href="#">Home</a></li>
+            <li class="line"><a href="index7.html">About</a></li>
+            <li class="line"><a href="index8.html">Contact Us</a></li>
+            <div class="location-dropdown">
+                <img src="image1/location.jpg" alt="location">
+                <select style="cursor: pointer;font-size: medium;" id="city-dropdown">
+                    <option value="1">Ahmedabad</option>
+                    <option value="2">Jamnagar</option>
+                    <option value="3">Gandhinagar</option>
+                    <option value="4">Porbandar</option>
+                    <option value="5">Dwarka</option>
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" id="profile-name">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li style="border-radius: 5px;" class="book"><a
+                            style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px;text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <div class="over">
+        <div class="header-container">
+            <div class="search-section">
+                <div class="search-box">
+                    <div class="search-logo">
+                        <i style="color: #38A4A6; font-size:x-large; font-weight: 700;">Find Bike Or Car</i>
+                    </div>
+                    <br>
+                    <div class="search-options">
+                        <button class="time-option" data-time="hourly">Hourly</button>
+                        <button class="time-option" data-time="monthly">Monthly</button>
+                        <button class="time-option" data-time="daily">Daily</button>
+                        <button class="time-option" data-time="weekly">Weekly</button>
+                    </div>
+                    <br>
+                    <div class="input-fields">
+                        <h5 style="padding: 0 25px;">Pickup</h5>
+                        <input type="datetime-local" id="pickup" placeholder="Pickup" onclick="this.showPicker()"
+                            onfocus="this.showPicker()">
+                        <h5 style="padding: 0 25px;">Dropoff</h5>
+                        <input type="datetime-local" id="dropoff" placeholder="Dropoff" onclick="this.showPicker()"
+                            onfocus="this.showPicker()">
+                    </div>
+                    <button class="search-btn">Search</button>
+                </div>
+                <div class="search-box1">
+                    <img src="image1/car1.png" alt="" class="imganimation">
+                    <img src="image1/bike.png" alt="" class="imganimation1">
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="popular-cars ">
+            <div id="pscar">
+                <h3 style="font-size: 1.5rem; font-weight: 600;">POPULAR VEHICLE</h3>
+                <div class="select">
+                    <h4 style="color: #000000;">Select Vehicle</h4>
+                    <div class="location-dropdown1">
+                        <select id="vehicle-type-dropdown">
+                            <option value="">All Types</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <div  class="car-container" id="car-container"></div>
+
+           
+                <div style="display: flex; justify-content: center; margin-top: 30px;">
+                   <a href="#" id="view-all-btn">  <button id="viewbtn">View all   →</button> </a>
+                </div>
+           
+        </div>
+        <br>
+        <div class="steps-container">
+            <div class="steps-header">
+                <h2 style="color: gray;">HOW IT WORKS</h2>
+                <h1>Flowing 3 Working Steps</h1>
+            </div>
+            <br>
+            <img src="image1/imgback.jpg" alt="" id="work-flow-img">
+        </div>
+        <div class="testimonials-container">
+            <div class="testimonials-header">
+                <h1>See the testimonials and opinions <br>shared by <span> our valued users.</span></h1>
+            </div>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <img src="image1/profile1.png" alt="User 1">
+                    <div class="stars">★★★★★</div>
+                    <p>This app was very useful for 2-3 days who know how to ride and has a valid license.</p>
+                    <h3>Rajil Patel</h3>
+                </div>
+                <div class="testimonial">
+                    <img src="image1/profile2.jpg" alt="User 2">
+                    <div class="stars">★★★★★</div>
+                    <p>This app was very useful for 2-3 days who know how to ride and has a valid license.</p>
+                    <h3>Tusha Chauhan</h3>
+                </div>
+                <div class="testimonial">
+                    <img src="image1/profile3.png" alt="User 3">
+                    <div class="stars">★★★★★</div>
+                    <p>This app was very useful for 2-3 days who know how to ride and has a valid license.</p>
+                    <h3>Ronika</h3>
+                </div>
+                <div class="testimonial">
+                    <img src="image1/profile4.jpg" alt="User 4">
+                    <div class="stars">★★★★★</div>
+                    <p>This app was very useful for 2-3 days who know how to ride and has a valid license.</p>
+                    <h3>Ronika</h3>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+
+        <!-- footer -->
+        <div id="upper1">
+            <div class="upper">
+                <div class="upperleft">
+                    <img src="image1/footerupperleftimg.png" alt="">
+                </div>
+                <div class="upperright">
+                    <h4 style="color: #38A4A6;">Do you want to stay updated on</h4>
+                    <h1 style="text-transform: lowercase;color: #38A4A6;">exclusive email offers?</h1>
+                    <div class="searchbar">
+                        <img src="image1/upperrightmailimg.png" alt="">
+                        <input type="text" placeholder="Enter your email">
+                        <button style="color: white; cursor: pointer;">Subscribe</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="murga">
+            <div class="murgi">
+                <div class="lower">
+                    <div class="p1">
+                        <img src="image/footerleftlogo.svg" alt="">
+                        <p>Rent your dream ride with Vel Riders – Cars and bikes for every adventure.</p>
+                    </div>
+                    <div class="p2">
+                        <h2><a style="background-color: transparent; text-decoration: none;" href="">helpful link</a>
+                        </h2>
+                        <h5><a style="background-color: transparent; text-decoration: none;" href="index.html">Home</a>
+                        </h5>
+                        <h5><a style="background-color: transparent; text-decoration: none;"
+                                href="index7.html">About</a>
+                        </h5>
+                        <h5><a style="background-color: transparent; text-decoration: none;"
+                                href="index8.html">Contact</a>
+                        </h5>
+                        <h5><a style="background-color: transparent; text-decoration: none;"
+                                href="Privacy-Policy.html">Privacy Policy</a></h5>
+                        <h5><a style="background-color: transparent; color: white; text-decoration: none;"
+                                href="terms.html">Terms & Condition</a></h5>
+                    </div>
+                    <div class="p3">
+                        <h2>get in touch</h2>
+                        <div class="leftfooter">
+                            <img src="image1/footerlogo.png" alt="" class="img1">
+                            <a href="https://www.google.com/maps/search/OFFICE+NO.+215,+Iscon+Emporio,+Satellite+Rd,+beside+Star+Bazar+BRTS+Bus+Stop,+Satellite,+Ahmedabad,+Gujarat+380015/@23.0268595,72.512787,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+                                style="text-decoration: none;background-color: transparent;">
+                                <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                    Bazaar, Satellite, Ahmedabad, Gujarat 380015</p>
+                            </a>
+                        </div>
+                        <div class="leftfooter">
+                            <img src="image1/footermail.png" alt="" class="img2">
+                            <p>info@velriders.com</p>
+                        </div>
+                        <div class="leftfooter">
+                            <img src="image/footercall2.svg" alt="" class="img3">
+                            <p>082382 24282</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="boder">
+                    <div class="lastfooter">
+                        <div class="lastfooterleft">
+                            <a target="_blank" href="https://www.facebook.com/shaileshcarbike" style="background-color: transparent;">
+                                <div class="circle">
+                                    <img src="image/facebookfinal.svg" alt="">
+                                </div>
+                            </a>
+                            <a target="_blank"  href="" style="background-color: transparent;">
+                                <div class="circle">
+                                    <img src="image/twiteerfinal.svg" alt="">
+                                </div>
+                            </a>
+                            <a target="_blank" href="https://www.instagram.com/velriders/" style="background-color: transparent;">
+                                <div class="circle">
+                                    <img src="image/instagramfinal.svg" alt="">
+                                </div>
+                            </a>
+
+                            <a target="_blank" href="" style="background-color: transparent;">
+                                <div class="circle">
+                                    <img src="image/instafinal.svg" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <div class="lastfooterright">
+                            <p>download the app by clicking the link below: </p>
+                            <div>
+                                <a style="background: transparent;"
+                                    href="https://play.google.com/store/apps/details?id=com.imd.velriders"><img
+                                        src="image/image 1.svg" alt=""></a>
+                                <img src="image/image 2.svg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+    <script>
+       window.onload = function () {
+        const now = new Date().toISOString().slice(0, 16);
+        const pickupInput = document.getElementById('pickup');
+        const dropoffInput = document.getElementById('dropoff');
+        pickupInput.min = now;
+        dropoffInput.min = now;
+        pickupInput.addEventListener('change', function () {
+            dropoffInput.min = pickupInput.value;
+        });
+
+        const carContainer = document.getElementById('car-container');
+        const vehicleTypeSelect = document.getElementById('vehicle-type-dropdown');
+        const cityDropdown = document.getElementById('city-dropdown');
+        const searchBtn = document.querySelector('.search-btn');
+
+        fetch('https://velriders.com/api/vehicle-types')
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === "success") {
+                    const uniqueTypes = new Set();
+                    data.data.forEach(vehicleType => {
+                        if (!uniqueTypes.has(vehicleType.name)) {
+                            uniqueTypes.add(vehicleType.name);
+                            const option = document.createElement('option');
+                            option.value = vehicleType.type_id;
+                            option.textContent = vehicleType.name;
+                            vehicleTypeSelect.appendChild(option);
+                        }
+                    });
+                }
+            })
+            .catch(error => console.error('Error fetching vehicle types:', error));
+
+        function fetchVehicles(cityId, typeId = '', startDate = '', endDate = '') {
+            let url = `https://velriders.com/api/vehicles?city_id=${cityId}&is_deleted=0`;
+            if (typeId) url += `&type_id=${typeId}`;
+            if (startDate && endDate) url += `&start_date=${encodeURIComponent(startDate)}&end_date=${encodeURIComponent(endDate)}`;
+
+            carContainer.innerHTML = '<p>Loading vehicles...</p>';
+
+            fetch(url)
+                .then(response => response.json())
+                .then(responseData => {
+                    carContainer.innerHTML = '';
+                    const vehicles = responseData.data;
+                    const limitedVehicles = Array.isArray(vehicles) ? vehicles.slice(0, 8) : [];
+
+                    if (limitedVehicles.length > 0) {
+                        limitedVehicles.forEach(vehicle => {
+                            const carCard = document.createElement('div');
+                            carCard.classList.add('car-card');
+                            const selectedCityId = cityDropdown.value;
+                            const selectedCityName = cityDropdown.options[cityDropdown.selectedIndex].text;
+
+                            carCard.innerHTML = `
+                                <div class="shine-effect">
+                                    <img src="${vehicle.cutout_image}" alt="${vehicle.vehicle_name}">
+                                </div>
+                                <h4>${vehicle.vehicle_name}   <span>${vehicle.price_pr_hour}</span></h4>
+                                <p>${vehicle.properties.transmission_name || 'N/A'} | 
+                                ${vehicle.properties.seating_capacity || 'N/A'} | 
+                                ${vehicle.properties.fuel_type_name || 'N/A'}</p>
+                                <a class="rentbtn" href="vehicle-details.html?vehicle_id=${vehicle.vehicle_id}&city_id=${selectedCityId}&city_name=${encodeURIComponent(selectedCityName)}">Rent Now</a>
+                            `;
+                            carContainer.appendChild(carCard);
+                        });
+
+                        setTimeout(() => {
+                            const shineElements = document.querySelectorAll('.shine-effect');
+                            shineElements.forEach(element => {
+                                element.classList.remove('shine-effect');
+                            });
+                        }, 1500);
+                    } else {
+                        carContainer.innerHTML = '<p>No vehicles found for the selected criteria.</p>';
+                    }
+                })
+                .catch(error => console.error('Error fetching vehicles:', error));
+        }
+
+        document.getElementById('view-all-btn').addEventListener('click', function (e) {
+            e.preventDefault();
+            const selectedCityId = cityDropdown.value;
+            const selectedCityName = cityDropdown.options[cityDropdown.selectedIndex].text;
+            const pickupDate = pickupInput.value;
+            const dropoffDate = dropoffInput.value;
+            const selectedTypeId = vehicleTypeSelect.value;
+
+            let url = `index1.html?city_id=${selectedCityId}&city_name=${encodeURIComponent(selectedCityName)}`;
+            if (pickupDate) url += `&start_date=${encodeURIComponent(pickupDate)}`;
+            if (dropoffDate) url += `&end_date=${encodeURIComponent(dropoffDate)}`;
+            if (selectedTypeId) url += `&type_id=${selectedTypeId}`;
+
+            window.location.href = url;
+        });
+
+        searchBtn.addEventListener('click', function () {
+            const selectedTypeId = vehicleTypeSelect.value;
+            const pickupDate = pickupInput.value;
+            const dropoffDate = dropoffInput.value;
+
+            if (!pickupDate || !dropoffDate) {
+                alert('Please select both pickup and drop-off dates.');
+                return;
+            }
+
+            fetchVehicles(cityDropdown.value, selectedTypeId, pickupDate, dropoffDate);
+
+            const selectedCityId = cityDropdown.value;
+            const selectedCityName = cityDropdown.options[cityDropdown.selectedIndex].text;
+            let url = `index1.html?city_id=${selectedCityId}&city_name=${encodeURIComponent(selectedCityName)}&start_date=${encodeURIComponent(pickupDate)}&end_date=${encodeURIComponent(dropoffDate)}`;
+            if (selectedTypeId) url += `&type_id=${selectedTypeId}`;
+            window.location.href = url;
+        });
+
+        vehicleTypeSelect.addEventListener('change', function () {
+            fetchVehicles(cityDropdown.value, this.value);
+        });
+
+        cityDropdown.addEventListener('change', function () {
+            const selectedTypeId = vehicleTypeSelect.value;
+            fetchVehicles(this.value, selectedTypeId);
+
+            const selectedCityId = this.value;
+            const selectedCityName = this.options[this.selectedIndex].text;
+            localStorage.setItem('selectedCityId', selectedCityId);
+            localStorage.setItem('selectedCityName', selectedCityName);
+        });
+
+        document.querySelectorAll('.time-option').forEach(button => {
+            button.addEventListener('click', function () {
+                document.querySelectorAll('.time-option').forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                this.classList.add('selected');
+            });
+        });
+
+        const initialTypeId = vehicleTypeSelect.value;
+        fetchVehicles(cityDropdown.value, initialTypeId);
+
+        if (!localStorage.getItem('selectedCityId')) {
+            localStorage.setItem('selectedCityId', cityDropdown.value);
+            localStorage.setItem('selectedCityName', cityDropdown.options[cityDropdown.selectedIndex].text);
+        }
+    };
+        
+    </script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

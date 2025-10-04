@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Information</title>
+    <link rel="icon" type="image/x-icon" href="/image/icon1.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+        html {
+            scroll-behavior: smooth;
+        }
+        * {
+            font-family: "Poppins", serif;
+            font-weight: normal;
+        }
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+        a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .header {
+            padding: 20px;
+            background-color: white;
+            border-bottom: 1px solid #eee;
+        }
+        .back-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .form-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
+            width: 350px;
+            max-width: 90%;
+        }
+        .form-box h3 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: small;
+            color: #777;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .next-btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 20px;
+        }
+        @media (max-width: 400px) {
+            .form-box {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div style="color: white;">hhhhhhh</div>
+    <br>
+    <br>
+    <div>
+        <a href="index5.html"> 
+            <button style="border: white; cursor: pointer; margin-left: 68px; background-color: white;" class="back"> 
+                <img style="height: 26px;" src="image/back2.png" class="img-fluid rounded mb-3" alt="back-button">
+            </button>
+        </a>
+    </div>
+
+    <div class="container">
+        <div class="form-box">
+            <h3>Confirm Information</h3>
+            <form id="infoForm" onsubmit="return handleSubmit(event);">
+                <div class="input-group">
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" required>
+                </div>
+                <div class="input-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="submit" class="next-btn">Next</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

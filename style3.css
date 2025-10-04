@@ -1,0 +1,126 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+*{
+  font-family: "Poppins", serif;
+  font-weight: normal;
+}
+
+.container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+  max-width: 600px;
+  width: 90%;
+  text-align: center;
+}
+
+.logo img {
+width: 143;
+  height:73 ;
+}
+
+
+.search-bar {
+  margin: 20px 0;
+  position: relative;
+  width: 100%;
+
+}
+
+.search-wrapper {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 25px;
+  background-color: #f9f9f9;
+  padding: 10px 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+}
+
+.search-input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  font-size: 16px;
+  background: transparent;
+  color: #333;
+}
+
+.search-input::placeholder {
+  color: #aaa;
+}
+/* City Grid */
+.city-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 20px;
+  justify-items: center;
+}
+
+.city-card {
+  position: relative;
+  overflow: hidden;
+ 
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.city-card img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+  filter: opacity(0.7) blur(0.1px);
+  background: linear-gradient(0,0,10,0);
+}
+.city-card img:hover{
+  filter: none;
+}
+.city-card:hover{
+  border-radius: 10px;
+  transform: scale(1.05);
+}
+
+.city-name {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  right: 0;
+  width: 152px;
+  color: rgba(0, 0, 0, 0.728);
+  padding: 4px 0;
+  font-size: 13px;
+  font-weight: bold;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.2em;
+  }
+
+  .search-bar input {
+    font-size: 14px;
+  }
+
+  .city-name {
+    font-size: 12px;
+  }
+}

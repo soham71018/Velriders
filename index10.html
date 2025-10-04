@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking-Details VELRIDERS</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <link rel="stylesheet" href="style10.css">
+    <link rel="stylesheet" href="navlogin.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fimage.css">
+    <link rel="stylesheet" href="linenav.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">&#9776;</div>
+        <ul class="nav-links">
+            <li><a class="line" style="color:#000000 ;" href="index.html">Home</a></li>
+
+            <li><a class="line" href="index7.html">About</a></li>
+
+            <li><a class="line" href="index8.html">Contact Us</a></li>
+            <div style="background: rgba(128, 128, 128, 0.477);cursor: not-allowed;" class="location-dropdown">
+                <img src="image/location.jpg" alt="location">
+                <select
+                    style="background:rgba(128, 128, 128, 0); cursor: not-allowed; color:rgb(4, 4, 4);font-size:medium"
+                    disabled>
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="jamnagar">Jamnagar</option>
+                    <option value="gandhinagar">Gandhinagar</option>
+                    <option value="porbandar">Porbandar</option>
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" id="profile-name">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px; font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li><a style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px;text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="backbtn">
+
+        <a id="back-button" href="#"> <img src="image2/Arrow - Left 2.png" alt="">back</a>
+    </div>
+
+    <div class="container">
+        <div class="booking-box">
+            <div class="input-group">
+                <div class="time-date">
+                    <div>
+                        <label for="from-date">From Date</label>
+                        <input type="date" id="from-date" onclick="this.showPicker()" onfocus="this.showPicker()"
+                            onchange="fetchPriceDetails()">
+                    </div>
+                    <div>
+                        <label for="from-time">From Time</label>
+                        <input type="time" id="from-time" onclick="this.showPicker()" onfocus="this.showPicker()"
+                            onchange="fetchPriceDetails()">
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <div class="time-date">
+                    <div>
+                        <label for="to-date">To Date</label>
+                        <input type="date" id="to-date" onclick="this.showPicker()" onfocus="this.showPicker()"
+                            onchange="fetchPriceDetails()">
+                    </div>
+                    <div>
+                        <label for="to-time">To Time</label>
+                        <input type="time" id="to-time" onclick="this.showPicker()" onfocus="this.showPicker()"
+                            onchange="fetchPriceDetails()">
+                    </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <p id="red">Please note that you have chosen a limited mileage option of 300 km. If you exceed this
+                    limit, additional charges will apply</p>
+                <div id="end">
+                    Unlimited Km
+                    <label class="switch">
+                        <input type="checkbox" id="unlimited-km" onchange="fetchPriceDetails()">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+            <div id="validation-message" style="color: red; display: none;">Please fill in all required fields.</div>
+            <div style="font-weight: 700;" class="total-price" id="total-price">₹0</div>
+            <a id="confirm-button" href="#" onclick="redirectToPayment()">
+                <button class="confirm-btn">Confirm your booking</button>
+            </a>
+        </div>
+    </div>
+    <br><br><br>
+    <div class="loading" id="loader"></div>
+    <div id="upper1">
+        <div class="upper">
+            <div class="upperleft">
+                <img src="image1/footerupperleftimg.png" alt="">
+            </div>
+            <div class="upperright">
+                <h4>Do you want to stay updated on</h4>
+                <h1 style="text-transform: lowercase;">exclusive email offers?</h1>
+                <div class="searchbar">
+                    <img src="image1/upperrightmailimg.png" alt="">
+                    <input type="text" placeholder="Enter your email">
+                    <button style="color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="murga">
+        <div class="murgi">
+            <div class="lower">
+                <div class="p1">
+                    <img src="image/footerleftlogo.svg" alt="">
+                    <p>Rent your dream ride with Vel Riders – Cars and bikes for every adventure.</p>
+                </div>
+                <div class="p2">
+                    <h2><a style="background-color: transparent; text-decoration: none;" href="">helpful link</a></h2>
+                    <h5><a style="background-color: transparent; text-decoration: none;" href="index.html">Home</a></h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;" href="index7.html">About</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;" href="index8.html">Contact</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;"
+                            href="Privacy-Policy.html">Privacy Policy</a></h5>
+                    <h5><a style="background-color: transparent; color: white; text-decoration: none;"
+                            href="terms.html">Terms & Condition</a></h5>
+                </div>
+                <div class="p3">
+                    <h2>get in touch</h2>
+                    <div class="leftfooter">
+                        <img src="image1/footerlogo.png" alt="" class="img1">
+                        <a href="https://www.google.com/maps/search/OFFICE+NO.+215,+Iscon+Emporio,+Satellite+Rd,+beside+Star+Bazar+BRTS+Bus+Stop,+Satellite,+Ahmedabad,+Gujarat+380015/@23.0268595,72.512787,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+                            style="text-decoration: none;background-color: transparent;">
+                            <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                Bazaar, Satellite, Ahmedabad, Gujarat 380015</p>
+                        </a>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image1/footermail.png" alt="" class="img2">
+                        <p>info@velriders.com</p>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image/footercall2.svg" alt="" class="img3">
+                        <p>082382 24282</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boder">
+                <div class="lastfooter">
+                    <div class="lastfooterleft">
+                        <a target="_blank" href="https://www.facebook.com/shaileshcarbike" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/facebookfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/twiteerfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/velriders/" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instagramfinal.svg" alt="">
+                            </div>
+                        </a>
+
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instafinal.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="lastfooterright">
+                        <p>download the app by clicking the link below: </p>
+                        <div>
+                            <a style="background: transparent;"
+                                href="https://play.google.com/store/apps/details?id=com.imd.velriders"><img
+                                    src="image/image 1.svg" alt=""></a>
+                            <img src="image/image 2.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script9.js"></script>
+    <script>
+        const loader = document.getElementById('loader');
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const cityName = getUrlParameter('city_name') || '';
+        const vehicleId = getUrlParameter('vehicle_id') || '';
+
+        document.getElementById('back-button').href = `vehicle-details.html?vehicle_id=${vehicleId}&city_name=${encodeURIComponent(cityName)}`;
+
+        window.onload = function () {
+            function formatDateString(dateString) {
+                if (!dateString) return '';
+                const parts = dateString.split(' ');
+                if (parts.length < 2) return '';
+                const datePart = parts[1];
+                const [month, day, year] = datePart.split('/');
+                if (!month || !day || !year) return '';
+                return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+            }
+
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('from-date').setAttribute('min', today);
+            document.getElementById('to-date').setAttribute('min', today);
+
+            const fromDateRaw = getUrlParameter('from_date') || '';
+            const fromTime = getUrlParameter('from_time') || '';
+            const toDateRaw = getUrlParameter('to_date') || '';
+            const toTime = getUrlParameter('to_time') || '';
+
+            const fromDate = formatDateString(fromDateRaw);
+            const toDate = formatDateString(toDateRaw);
+
+            document.getElementById('from-date').value = fromDate;
+            document.getElementById('from-time').value = fromTime;
+            document.getElementById('to-date').value = toDate;
+            document.getElementById('to-time').value = toTime;
+
+            if (fromDate && fromTime && toDate && toTime) {
+                fetchPriceDetails();
+            } else {
+                loader.style.display = 'none';
+            }
+
+            const locationDropdown = document.querySelector('.location-dropdown select');
+            if (locationDropdown && cityName) {
+                const options = Array.from(locationDropdown.options);
+                const selectedOption = options.find(option => option.value.toLowerCase() === cityName.toLowerCase());
+                if (selectedOption) {
+                    selectedOption.selected = true;
+                }
+            }
+        };
+
+        async function fetchPriceDetails() {
+            const fromDate = document.getElementById('from-date').value;
+            const fromTime = document.getElementById('from-time').value;
+            const toDate = document.getElementById('to-date').value;
+            const toTime = document.getElementById('to-time').value;
+            const unlimitedKm = document.getElementById('unlimited-km').checked ? 1 : 0;
+            const validationMessage = document.getElementById('validation-message');
+            const totalPriceElement = document.getElementById('total-price');
+
+            if (!fromDate || !fromTime || !toDate || !toTime) {
+                validationMessage.innerText = "Please fill in all required fields.";
+                validationMessage.style.display = 'block';
+                loader.style.display = 'none';
+                return;
+            }
+            loader.style.display = 'flex';
+            validationMessage.style.display = 'none';
+
+            const startDateTime = new Date(`${fromDate}T${fromTime}`).toISOString();
+            const endDateTime = new Date(`${toDate}T${toTime}`).toISOString();
+            const apiUrl = `https://velriders.com/api/get-price-details?start_date=${startDateTime}&end_date=${endDateTime}&vehicle_id=${vehicleId}&unlimited_kms=${unlimitedKm}`;
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+
+                console.log("API Response:", data);
+
+                if (!data || !data.data || typeof data.data.final_amount === "undefined") {
+                    throw new Error("Invalid API response format");
+                }
+
+                const finalAmount = data.data.final_amount;
+                totalPriceElement.innerText = `₹${finalAmount}`;
+
+                if (finalAmount === 0) {
+                    validationMessage.innerText = "Vehicle is not available for this date or time.";
+                    validationMessage.style.display = 'block';
+                } else {
+                    validationMessage.style.display = 'none';
+                }
+            } catch (error) {
+                console.error('Error fetching price details:', error);
+                validationMessage.innerText = "Vehicle is not available for this date or time.";
+                validationMessage.style.display = 'block';
+                totalPriceElement.innerText = '₹0';
+            } finally {
+                loader.style.display = 'none';
+            }
+        }
+
+        function redirectToPayment() {
+            const fromDate = document.getElementById('from-date').value;
+            const fromTime = document.getElementById('from-time').value;
+            const toDate = document.getElementById('to-date').value;
+            const toTime = document.getElementById('to-time').value;
+            const unlimitedKm = document.getElementById('unlimited-km').checked ? 1 : 0;
+            const totalPrice = document.getElementById('total-price').innerText.replace('₹', '').trim();
+            const validationMessage = document.getElementById('validation-message');
+
+            if (!fromDate || !fromTime || !toDate || !toTime) {
+                validationMessage.innerText = "Please fill in all required fields.";
+                validationMessage.style.display = 'block';
+                return;
+            }
+
+            if (totalPrice === "0" || totalPrice === "") {
+                validationMessage.innerText = "Vehicle is not available for this date or time.";
+                validationMessage.style.display = 'block';
+                return;
+            }
+
+            validationMessage.style.display = 'none';
+
+            const selectedCity = document.querySelector('.location-dropdown select').value;
+
+            const url = `index9.html?vehicle_id=${vehicleId}&from_date=${fromDate}&from_time=${fromTime}&to_date=${toDate}&to_time=${toTime}&unlimited_km=${unlimitedKm}&total_price=${totalPrice}&city_name=${selectedCity}`;
+
+            window.location.href = url;
+        }
+    </script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

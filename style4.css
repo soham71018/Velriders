@@ -1,0 +1,173 @@
+body {
+  font-family: poppins;
+  text-align: center;
+}
+
+.container {
+  width: 300px;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+input {
+  width: -webkit-fill-available;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  border: none;
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #218838;
+}
+
+.toggle-btn {
+  background-color:#38A4A6;
+}
+
+.toggle-btn:hover {
+  background-color: #308486;
+}
+
+#form-title {
+  color: #38A4A6;
+}
+
+body {
+  margin: 0px;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff;
+  flex-wrap: wrap;
+  color: #000;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 70px;
+  margin-right: 10px;
+}
+
+.logo span {
+  color: #38A4A6;
+  font-weight: 600;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 27.5px;
+  align-items: center;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: #000000;
+  /* font-weight: 500; */
+}
+
+.location-dropdown {
+  display: flex;
+  align-items: center;
+  border: 1px solid #38A4A6;
+  padding: 5px 10px;
+  border-radius: 5px;
+  color: #38A4A6;
+}
+
+.location-dropdown select {
+  border: none;
+  outline: none;
+  margin-left: 5px;
+  color: #38A4A6;
+}
+
+.location-dropdown img {
+  height: 15px;
+  width: 12px;
+}
+
+.login-signup {
+  background-color: #38A4A6;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.menu-icon {
+  display: none;
+  cursor: pointer;
+  font-size: 24px;
+}
+
+@media (max-width:380px) {
+  .container {
+    width: 250px;
+  }
+}
+
+@media (max-width: 770px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
+    background-color: #ffffff;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 5px 0;
+  }
+
+  .menu-icon {
+    display: block;
+    /* Show menu icon on smaller screens */
+  }
+
+  nav {
+    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+  }
+}

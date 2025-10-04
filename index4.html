@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <title>Login/Register VELRIDERS</title>
+    <link rel="stylesheet" href="style4.css">
+    <link rel="stylesheet" href="linenav.css">
+    <link rel="stylesheet" href="navlogin.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+      
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li><a class="line" href="index.html">Home</a></li>
+            <li><a class="line" href="index7.html">About</a></li>
+            <li><a class="line" href="index8.html">Contact Us</a></li>
+            <div class="location-dropdown" style="background: rgba(128, 128, 128, 0.477);cursor: not-allowed;"
+                class="location-dropdown">
+                <img src="image/location.jpg" alt="location">
+                <select id="city-dropdown"
+                    style="font-size: medium;background:rgba(128, 128, 128, 0); cursor: not-allowed; color:rgb(4, 4, 4);"
+                    disabled>
+                    <option value="1">Ahmedabad</option>
+                    <option value="2">Jamnagar</option>
+                    <option value="3">Gandhinagar</option>
+                    <option value="4">Porbandar</option>
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 10px 19px; border: none; border-radius: 5px; cursor: pointer; font-size:14px;margin-top: 0px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" id="profile-name">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px; font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li><a style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px;text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <h2 id="form-title">User Registration</h2>
+    <div class="container">
+        <div id="register-form">
+            <input type="text" id="registerUserId" placeholder="User ID" required>
+            <input type="email" id="registerEmail" placeholder="Email" required>
+            <input type="password" id="registerPassword" placeholder="Password" required>
+            <button onclick="register()">Register</button>
+            <button class="toggle-btn" onclick="toggleForms()">Go to Login</button>
+        </div>
+        <div id="login-form" style="display: none;">
+            <input type="text" id="loginUserId" placeholder="User ID" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button onclick="login()">Login</button>
+            <button class="toggle-btn" onclick="toggleForms()">Go to Register</button>
+        </div>
+    </div>
+
+    <script>
+        function toggleForms() {
+            const registerForm = document.getElementById("register-form");
+            const loginForm = document.getElementById("login-form");
+            const formTitle = document.getElementById("form-title");
+
+            if (registerForm.style.display === "none") {
+                registerForm.style.display = "block";
+                loginForm.style.display = "none";
+                formTitle.innerText = "User Registration";
+            } else {
+                registerForm.style.display = "none";
+                loginForm.style.display = "block";
+                formTitle.innerText = "Login";
+            }
+        }
+
+        function validateUserId(userId) {
+            const userIdRegex = /^[a-zA-Z0-9]+$/;
+            return userIdRegex.test(userId);
+        }
+
+        function validateEmail(email) {
+            const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return emailRegex.test(email);
+        }
+
+        function validatePassword(password) {
+            const passwordRegex = /^(?=.*[!@#$%^&*])[A-Z][a-zA-Z0-9!@#$%^&*]{7,}$/;
+            return passwordRegex.test(password);
+        }
+
+        async function register() {
+            const userId = document.getElementById("registerUserId").value;
+            const email = document.getElementById("registerEmail").value;
+            const password = document.getElementById("registerPassword").value;
+
+            if (!validateUserId(userId)) {
+                alert("User ID must contain only letters and numbers");
+                return;
+            }
+
+            if (!validateEmail(email)) {
+                alert("Please enter a valid email address");
+                return;
+            }
+
+            if (!validatePassword(password)) {
+                alert("Password must start with a capital letter, contain at least one special character (!@#$%^&*), and be at least 8 characters long");
+                return;
+            }
+
+            console.log('📝 Sending register request:', { userId, email, password });
+
+            try {
+                const response = await fetch('http://localhost:3000/register', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId, email, password })
+                });
+                const data = await response.json();
+                console.log('📩 Register response:', data);
+                alert(data.message);
+                if (data.success) toggleForms();
+            } catch (error) {
+                console.error('❌ Register error:', error);
+                alert('Registration failed. Check console for details.');
+            }
+        }
+
+        async function login() {
+            const userId = document.getElementById("loginUserId").value;
+            const password = document.getElementById("loginPassword").value;
+
+            if (!validateUserId(userId)) {
+                alert("User ID must contain only letters and numbers");
+                return;
+            }
+
+            console.log('🔑 Sending login request:', { userId, password });
+
+            try {
+                const response = await fetch('http://localhost:3000/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ userId, password })
+                });
+                const data = await response.json();
+                console.log('📩 Login response:', data);
+
+                if (data.success) {
+                    alert('Login successful!');
+                    localStorage.setItem("token", data.token);
+                    localStorage.setItem("userId", userId);
+                    localStorage.setItem(`profileName_${userId}`, data.name);
+                    localStorage.setItem(`profileImage_${userId}`, 'default-avatar.png');
+                    window.location.href = 'index.html';
+                } else {
+                    alert(data.message);
+                }
+            } catch (error) {
+                console.error('❌ Login error:', error);
+                alert('Login failed. Check console for details.');
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const registerInputs = [
+                document.getElementById('registerUserId'),
+                document.getElementById('registerEmail'),
+                document.getElementById('registerPassword')
+            ];
+
+
+            const loginInputs = [
+                document.getElementById('loginUserId'),
+                document.getElementById('loginPassword')
+            ];
+
+
+            registerInputs.forEach(input => {
+                input.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        register();
+                    }
+                });
+            });
+
+            loginInputs.forEach(input => {
+                input.addEventListener('keypress', (event) => {
+                    if (event.key === 'Enter') {
+                        event.preventDefault();
+                        login();
+                    }
+                });
+            });
+        });
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+        window.onload = function () {
+            const cityDropdown = document.getElementById('city-dropdown');
+
+
+            const savedCityId = localStorage.getItem('selectedCityId');
+            const savedCityName = localStorage.getItem('selectedCityName');
+
+            if (savedCityId && savedCityName) {
+                let cityExists = false;
+                for (let option of cityDropdown.options) {
+                    if (option.value === savedCityId) {
+                        option.selected = true;
+                        cityExists = true;
+                        break;
+                    }
+                }
+
+
+                if (!cityExists) {
+                    const newOption = document.createElement('option');
+                    newOption.value = savedCityId;
+                    newOption.textContent = savedCityName;
+                    newOption.selected = true;
+                    cityDropdown.appendChild(newOption);
+                }
+            }
+
+
+            cityDropdown.addEventListener('change', function () {
+                const selectedCityId = this.value;
+                const selectedCityName = this.options[this.selectedIndex].text;
+                localStorage.setItem('selectedCityId', selectedCityId);
+                localStorage.setItem('selectedCityName', selectedCityName);
+            });
+        };
+
+    </script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

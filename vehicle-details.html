@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rent-now VELRIDERS</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="navlogin.css">
+    <link rel="stylesheet" href="fimage.css">
+    <link rel="stylesheet" href="linenav.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li><a class="line" href="index.html">Home</a></li>
+
+            <li><a class="line" href="index7.html">About</a></li>
+
+            <li><a class="line" href="index8.html">Contact Us</a></li>
+            <div style="background: rgba(128, 128, 128, 0.477);cursor: not-allowed;" class="location-dropdown">
+                <img src="image/location.jpg" alt="location">
+                <select class="cap"
+                    style="background:rgba(128, 128, 128, 0); cursor: not-allowed; color:rgba(52, 52, 52, 0.849);text-transform: capitalize;">
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" id="profile-name" style="color: black;">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px; font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li><a style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px;text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+
+    <div class="backbtn">
+        <a href="index.html"> <img src="image2/Arrow - Left 2.png" alt="">Back</a>
+    </div>
+    <div class="loading" id="loader"></div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="car-card">
+                    <div id="carouselExample" class="carousel slide">
+                        <div class="carousel-inner" id="carousel-inner">
+                        </div>
+                        <br>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
+                    <div class="gallery" id="gallery"></div>
+                </div>
+            </div>
+            <br>
+            <div class="col-md-6">
+                <div class="car-card">
+                    <h2 id="vehicle-name"></h2>
+                    <p id="vehicle-description"></p>
+                    <div class="mb-3" id="vehicle-properties">
+                        <div class="property-item">
+                            <img src="data:image/svg+xml,%3csvg%20width='38'%20height='38'%20viewBox='0%200%2038%2038'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='19'%20cy='19'%20r='19'%20fill='url(%23paint0_radial_0_18288)'/%3e%3ccircle%20cx='19'%20cy='19'%20r='18.2586'%20stroke='%2338A4A6'%20stroke-opacity='0.2'%20stroke-width='1.48276'/%3e%3cg%20clip-path='url(%23clip0_0_18288)'%3e%3cpath%20d='M15.4601%2023.3198C15.4601%2023.3198%2013.1201%2017.0798%2013.1201%2013.9598C13.1201%2010.8398%2014.6801%2010.8398%2014.6801%2010.8398H15.4601C15.4601%2010.8398%2016.2401%2010.8398%2016.2401%2011.6198C16.2401%2012.3998%2015.4601%2012.3998%2015.4601%2013.9598C15.4601%2015.5198%2017.8001%2017.0798%2017.8001%2019.4198C17.8001%2021.7598%2015.4601%2023.3198%2015.4601%2023.3198ZM19.3601%2022.5398C18.5801%2022.5398%2016.2401%2024.4898%2016.2401%2024.4898C16.0061%2024.6458%2016.0841%2024.8798%2016.2401%2025.1138C16.2401%2025.1138%2017.0201%2026.5178%2018.5801%2026.5178H23.2601C24.1181%2026.5178%2024.8201%2025.8158%2024.8201%2024.9578V24.1778C24.8201%2023.3198%2024.1181%2022.6178%2023.2601%2022.6178H19.3601V22.5398Z'%20fill='black'/%3e%3cpath%20d='M15.4601%2023.3198C15.4601%2023.3198%2013.1201%2017.0798%2013.1201%2013.9598C13.1201%2010.8398%2014.6801%2010.8398%2014.6801%2010.8398H15.4601C15.4601%2010.8398%2016.2401%2010.8398%2016.2401%2011.6198C16.2401%2012.3998%2015.4601%2012.3998%2015.4601%2013.9598C15.4601%2015.5198%2017.8001%2017.0798%2017.8001%2019.4198C17.8001%2021.7598%2015.4601%2023.3198%2015.4601%2023.3198ZM19.3601%2022.5398C18.5801%2022.5398%2016.2401%2024.4898%2016.2401%2024.4898C16.0061%2024.6458%2016.0841%2024.8798%2016.2401%2025.1138C16.2401%2025.1138%2017.0201%2026.5178%2018.5801%2026.5178H23.2601C24.1181%2026.5178%2024.8201%2025.8158%2024.8201%2024.9578V24.1778C24.8201%2023.3198%2024.1181%2022.6178%2023.2601%2022.6178H19.3601V22.5398Z'%20fill='black'%20fill-opacity='0.2'/%3e%3c/g%3e%3cdefs%3e%3cradialGradient%20id='paint0_radial_0_18288'%20cx='0'%20cy='0'%20r='1'%20gradientUnits='userSpaceOnUse'%20gradientTransform='translate(19%2019)%20rotate(45)%20scale(26.8701)'%3e%3cstop%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3cclipPath%20id='clip0_0_18288'%3e%3crect%20width='18'%20height='18'%20fill='white'%20transform='translate(10%2010)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                                alt="Seating" class="property-icon">
+                            <span id="seating-capacity"></span>
+                        </div>
+                        <div class="property-item">
+                            <img src="data:image/svg+xml,%3csvg%20width='38'%20height='38'%20viewBox='0%200%2038%2038'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='19'%20cy='19'%20r='19'%20fill='url(%23paint0_radial_0_18293)'/%3e%3ccircle%20cx='19'%20cy='19'%20r='18.2586'%20stroke='%2338A4A6'%20stroke-opacity='0.2'%20stroke-width='1.48276'/%3e%3cg%20clip-path='url(%23clip0_0_18293)'%3e%3cg%20clip-path='url(%23clip1_0_18293)'%3e%3cpath%20fill-rule='evenodd'%20clip-rule='evenodd'%20d='M16.7637%2024.9518L15.1462%2023.3357H14.0327C13.6436%2023.3357%2013.3251%2023.0172%2013.3251%2022.6281V21.4233H12.6507V22.833C12.6507%2023.1335%2012.4042%2023.38%2012.1037%2023.38H11.2755C10.975%2023.38%2010.7285%2023.1335%2010.7285%2022.833V18.0553C10.7285%2017.7548%2010.975%2017.5083%2011.2755%2017.5083H12.1037C12.4042%2017.5083%2012.6507%2017.7548%2012.6507%2018.0553V19.4651H13.3251V18.1689C13.3251%2017.7797%2013.6436%2017.4612%2014.0327%2017.4612H15.2154L16.8869%2015.6845C17.0808%2015.5155%2017.3384%2015.456%2017.6389%2015.4684H24.5257C24.7639%2015.4948%2024.9453%2015.5861%2025.0561%2015.7579C25.1669%2015.9268%2025.1489%2016.0224%2025.1489%2016.2121V19.4651H25.8233V18.0553C25.8233%2017.7548%2026.0698%2017.5083%2026.3703%2017.5083H27.1984C27.4989%2017.5083%2027.7455%2017.7548%2027.7455%2018.0553V22.833C27.7455%2023.1335%2027.4989%2023.38%2027.1984%2023.38H26.3703C26.0698%2023.38%2025.8233%2023.1335%2025.8233%2022.833V21.4233H25.1489V21.5507C25.1489%2021.9287%2025.16%2022.1572%2024.919%2022.4702C24.8733%2022.5297%2024.8221%2022.5865%2024.7653%2022.6391L22.2961%2025.0571C22.1728%2025.1942%2021.9859%2025.269%2021.7394%2025.2828H17.5295C17.2151%2025.269%2016.9589%2025.1609%2016.7637%2024.9518ZM19.5513%2020.7391L17.8009%2020.5744L19.2522%2017.3948H21.2367L20.1108%2019.2186L22.1355%2019.4429L18.4185%2023.9049L19.5513%2020.7391ZM17.9269%2012.1836H22.7046C23.0051%2012.1836%2023.2516%2012.4301%2023.2516%2012.7306V13.5587C23.2516%2013.8593%2023.0051%2014.1058%2022.7046%2014.1058H21.2949V14.8023H19.3367V14.1058H17.9269C17.6264%2014.1058%2017.3799%2013.8593%2017.3799%2013.5587V12.7306C17.3799%2012.4301%2017.6264%2012.1836%2017.9269%2012.1836Z'%20fill='black'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cradialGradient%20id='paint0_radial_0_18293'%20cx='0'%20cy='0'%20r='1'%20gradientUnits='userSpaceOnUse'%20gradientTransform='translate(19%2019)%20rotate(45)%20scale(26.8701)'%3e%3cstop%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3cclipPath%20id='clip0_0_18293'%3e%3crect%20width='18'%20height='18'%20fill='white'%20transform='translate(10%2010)'/%3e%3c/clipPath%3e%3cclipPath%20id='clip1_0_18293'%3e%3crect%20width='17.0169'%20height='13.0992'%20fill='white'%20transform='translate(10.7285%2012.1836)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                                alt="Engine" class="property-icon">
+                            <span id="engine-cc"></span>
+                        </div>
+                        <div class="property-item">
+                            <img src="data:image/svg+xml,%3csvg%20width='38'%20height='38'%20viewBox='0%200%2038%2038'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='19'%20cy='19'%20r='19'%20fill='url(%23paint0_radial_0_18302)'/%3e%3ccircle%20cx='19'%20cy='19'%20r='18.2586'%20stroke='%2338A4A6'%20stroke-opacity='0.2'%20stroke-width='1.48276'/%3e%3cg%20clip-path='url(%23clip0_0_18302)'%3e%3cg%20clip-path='url(%23clip1_0_18302)'%3e%3cpath%20d='M18.9998%2011.4395C20.7495%2011.439%2022.4452%2012.0452%2023.7981%2013.1549C25.1509%2014.2646%2026.0771%2015.809%2026.4188%2017.525C26.7605%2019.241%2026.4966%2021.0225%2025.672%2022.5657C24.8475%2024.109%2023.5133%2025.3186%2021.8969%2025.9883C20.2804%2026.6581%2018.4817%2026.7467%2016.8073%2026.2389C15.1329%2025.7312%2013.6863%2024.6585%2012.7142%2023.2037C11.742%2021.7489%2011.3044%2020.002%2011.4759%2018.2608C11.6474%2016.5195%2012.4173%2014.8915%2013.6546%2013.6543C14.3557%2012.9511%2015.1888%2012.3934%2016.1061%2012.0133C17.0234%2011.6332%2018.0068%2011.4382%2018.9998%2011.4395ZM19.5006%2021.5404C19.6363%2021.6449%2019.7359%2021.7894%2019.7855%2021.9534C19.835%2022.1175%2019.8319%2022.2929%2019.7767%2022.4551C19.7215%2022.6173%2019.6168%2022.7582%2019.4775%2022.8579C19.3382%2022.9577%2019.1711%2023.0113%2018.9998%2023.0113C18.8284%2023.0113%2018.6613%2022.9577%2018.522%2022.8579C18.3827%2022.7582%2018.2781%2022.6173%2018.2228%2022.4551C18.1676%2022.2929%2018.1645%2022.1175%2018.2141%2021.9534C18.2636%2021.7894%2018.3632%2021.6449%2018.499%2021.5404V19.8829H16.6459V21.5404C16.7816%2021.6449%2016.8813%2021.7894%2016.9308%2021.9534C16.9803%2022.1175%2016.9772%2022.2929%2016.922%2022.4551C16.8668%2022.6173%2016.7622%2022.7582%2016.6228%2022.8579C16.4835%2022.9577%2016.3164%2023.0113%2016.1451%2023.0113C15.9737%2023.0113%2015.8067%2022.9577%2015.6673%2022.8579C15.528%2022.7582%2015.4234%2022.6173%2015.3681%2022.4551C15.3129%2022.2929%2015.3099%2022.1175%2015.3594%2021.9534C15.4089%2021.7894%2015.5085%2021.6449%2015.6443%2021.5404V17.1205C15.5085%2017.016%2015.4089%2016.8715%2015.3594%2016.7075C15.3099%2016.5434%2015.3129%2016.368%2015.3681%2016.2058C15.4234%2016.0436%2015.528%2015.9027%2015.6673%2015.803C15.8067%2015.7032%2015.9737%2015.6496%2016.1451%2015.6496C16.3164%2015.6496%2016.4835%2015.7032%2016.6228%2015.803C16.7622%2015.9027%2016.8668%2016.0436%2016.922%2016.2058C16.9772%2016.368%2016.9803%2016.5434%2016.9308%2016.7075C16.8813%2016.8715%2016.7816%2017.016%2016.6459%2017.1205V18.8813H18.499V17.1205C18.3632%2017.016%2018.2636%2016.8715%2018.2141%2016.7075C18.1645%2016.5434%2018.1676%2016.368%2018.2228%2016.2058C18.2781%2016.0436%2018.3827%2015.9027%2018.522%2015.803C18.6613%2015.7032%2018.8284%2015.6496%2018.9998%2015.6496C19.1711%2015.6496%2019.3382%2015.7032%2019.4775%2015.803C19.6168%2015.9027%2019.7215%2016.0436%2019.7767%2016.2058C19.8319%2016.368%2019.835%2016.5434%2019.7855%2016.7075C19.7359%2016.8715%2019.6363%2017.016%2019.5006%2017.1205V18.8813H21.3537V17.1205C21.2179%2017.016%2021.1183%2016.8715%2021.0687%2016.7075C21.0192%2016.5434%2021.0223%2016.368%2021.0775%2016.2058C21.1328%2016.0436%2021.2374%2015.9027%2021.3767%2015.803C21.516%2015.7032%2021.6831%2015.6496%2021.8545%2015.6496C22.0258%2015.6496%2022.1929%2015.7032%2022.3322%2015.803C22.4715%2015.9027%2022.5762%2016.0436%2022.6314%2016.2058C22.6866%2016.368%2022.6897%2016.5434%2022.6402%2016.7075C22.5906%2016.8715%2022.491%2017.016%2022.3553%2017.1205V19.3145C22.3565%2019.3358%2022.3565%2019.3571%2022.3553%2019.3784C22.3553%2019.5113%2022.3025%2019.6386%2022.2086%2019.7326C22.1147%2019.8265%2021.9873%2019.8792%2021.8545%2019.8792H19.5006V21.5404ZM23.5611%2014.4332C22.5048%2013.3777%2021.1152%2012.7211%2019.629%2012.5752C18.1428%2012.4294%2016.6521%2012.8033%2015.4107%2013.6333C14.1693%2014.4633%2013.2541%2015.698%2012.821%2017.1271C12.3879%2018.5562%2012.4636%2020.0913%2013.0353%2021.4708C13.6071%2022.8503%2014.6394%2023.989%2015.9565%2024.6927C17.2735%2025.3964%2018.7939%2025.6218%2020.2584%2025.3303C21.723%2025.0388%2023.0412%2024.2486%2023.9885%2023.0942C24.9358%2021.9399%2025.4536%2020.4928%2025.4536%2018.9995C25.4554%2018.1515%2025.2895%2017.3116%2024.9656%2016.5279C24.6417%2015.7443%2024.166%2015.0324%2023.566%2014.4332H23.5611Z'%20fill='black'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cradialGradient%20id='paint0_radial_0_18302'%20cx='0'%20cy='0'%20r='1'%20gradientUnits='userSpaceOnUse'%20gradientTransform='translate(19%2019)%20rotate(45)%20scale(26.8701)'%3e%3cstop%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3cclipPath%20id='clip0_0_18302'%3e%3crect%20width='18'%20height='18'%20fill='white'%20transform='translate(10%2010)'/%3e%3c/clipPath%3e%3cclipPath%20id='clip1_0_18302'%3e%3crect%20width='15.12'%20height='15.12'%20fill='white'%20transform='translate(11.4395%2011.4395)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                                alt="Transmission" class="property-icon">
+                            <span id="transmission"></span>
+                        </div>
+                        <div class="property-item">
+                            <img src="data:image/svg+xml,%3csvg%20width='38'%20height='38'%20viewBox='0%200%2038%2038'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='19'%20cy='19'%20r='19'%20fill='url(%23paint0_radial_0_18309)'/%3e%3ccircle%20cx='19'%20cy='19'%20r='18.2586'%20stroke='%2338A4A6'%20stroke-opacity='0.2'%20stroke-width='1.48276'/%3e%3cg%20clip-path='url(%23clip0_0_18309)'%3e%3cg%20clip-path='url(%23clip1_0_18309)'%3e%3cpath%20d='M14.4692%2016.9991L15.2711%2017.801L14.3477%2018.7244L13.5326%2017.9092C12.4503%2019.1696%2011.7962%2020.8086%2011.7962%2022.6003H10.7207C10.7207%2020.314%2011.6475%2018.2439%2013.1459%2016.7455C14.6444%2015.2471%2016.7144%2014.3203%2019.0007%2014.3203C20.7944%2014.3203%2022.4549%2014.8908%2023.8107%2015.8601L22.9477%2016.5722C21.9853%2015.9408%2020.8625%2015.5336%2019.6537%2015.425V16.3652H18.3477V15.425C16.885%2015.5565%2015.5482%2016.125%2014.4692%2016.9991ZM18.2673%2021.4638C17.0089%2022.5034%2018.6919%2024.2532%2019.8274%2022.7636L24.9577%2016.3619L24.7175%2016.1412L18.2673%2021.4638ZM25.2915%2017.2166C26.5315%2018.6642%2027.2807%2020.5448%2027.2807%2022.6003H26.2052C26.2052%2020.8851%2025.6058%2019.31%2024.6053%2018.0728L25.2915%2017.2166Z'%20fill='black'/%3e%3c/g%3e%3c/g%3e%3cdefs%3e%3cradialGradient%20id='paint0_radial_0_18309'%20cx='0'%20cy='0'%20r='1'%20gradientUnits='userSpaceOnUse'%20gradientTransform='translate(19%2019)%20rotate(45)%20scale(26.8701)'%3e%3cstop%20stop-color='white'/%3e%3cstop%20offset='1'%20stop-color='white'%20stop-opacity='0'/%3e%3c/radialGradient%3e%3cclipPath%20id='clip0_0_18309'%3e%3crect%20width='18'%20height='18'%20fill='white'%20transform='translate(10%2010)'/%3e%3c/clipPath%3e%3cclipPath%20id='clip1_0_18309'%3e%3crect%20width='16.56'%20height='9.108'%20fill='white'%20transform='translate(10.7207%2014.3203)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                                alt="Mileage" class="property-icon">
+                            <span id="mileage"></span>
+                        </div>
+                        <div class="property-item">
+                            <img src="https://velriders.com/assets/PetrolType.s6eRAV_j.svg" alt="Fuel Type"
+                                class="property-icon">
+                            <span id="fuel-type"></span>
+                        </div>
+                        <div class="property-item">
+                            <img src="https://velriders.com/assets/Petrol.CQc2YTLX.svg" alt="Fuel Capacity"
+                                class="property-icon">
+                            <span id="fuel-capacity"></span>
+                        </div>
+                    </div>
+                    <button class="rent-btn" onclick="redirectToBooking()">Rent Now</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="features-section">
+        <h5 style="font-weight: 600;">Features</h5>
+        <div class="row" id="features"></div>
+    </div>
+
+    <br>
+    <!-- footer -->
+    <div id="upper1">
+        <div class="upper">
+            <div class="upperleft">
+                <img src="image1/footerupperleftimg.png" alt="">
+            </div>
+            <div class="upperright">
+                <h4>Do you want to stay updated on</h4>
+                <h1 style="text-transform: lowercase;color: #38A4A6;">exclusive email offers?</h1>
+                <div class="searchbar">
+                    <img src="image1/upperrightmailimg.png" alt="">
+                    <input type="text" placeholder="Enter your email">
+                    <button style="color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="murga">
+        <div class="murgi">
+            <div class="lower">
+                <div class="p1">
+                    <img src="image/footerleftlogo.svg" alt="">
+                    <p>Rent your dream ride with Vel Riders – Cars and bikes for every adventure.</p>
+                </div>
+                <div class="p2">
+                    <h2><a style="background-color: transparent; text-decoration: none;color:white;font-size: 24px;"
+                            href="">helpful link</a></h2>
+                    <h5><a style="background-color: transparent; text-decoration: none;color:white;font-size: 13.28px;"
+                            href="index.html">Home</a></h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;color:white;font-size: 13.28px;"
+                            href="index7.html">About</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;color:white;font-size: 13.28px;"
+                            href="index8.html">Contact</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;color: white;font-size: 13.28px;"
+                            href="Privacy-Policy.html">Privacy Policy</a></h5>
+                    <h5><a style="background-color: transparent; color: white; text-decoration: none;font-size: 13.28px;"
+                            href="terms.html">Terms & Condition</a></h5>
+                </div>
+                <div class="p3">
+                    <h2 style="font-size: 24px;">get in touch</h2>
+                    <div class="leftfooter">
+                        <img src="image1/footerlogo.png" alt="" class="img1">
+                        <a href="https://www.google.com/maps/search/OFFICE+NO.+215,+Iscon+Emporio,+Satellite+Rd,+beside+Star+Bazar+BRTS+Bus+Stop,+Satellite,+Ahmedabad,+Gujarat+380015/@23.0268595,72.512787,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+                            style="text-decoration: none;background-color: transparent;color:white;">
+                            <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                Bazaar, Satellite, Ahmedabad, Gujarat 380015</p>
+                        </a>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image1/footermail.png" alt="" class="img2">
+                        <p>info@velriders.com</p>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image/footercall2.svg" alt="" class="img3">
+                        <p>082382 24282</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boder">
+                <div class="lastfooter">
+                    <div class="lastfooterleft">
+                        <a target="_blank" href="https://www.facebook.com/shaileshcarbike" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/facebookfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/twiteerfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/velriders/" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instagramfinal.svg" alt="">
+                            </div>
+                        </a>
+
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instafinal.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="lastfooterright">
+                        <p>download the app by clicking the link below: </p>
+                        <div>
+                            <a style="background: transparent;"
+                                href="https://play.google.com/store/apps/details?id=com.imd.velriders"><img
+                                    src="image/image 1.svg" alt=""></a>
+                            <img src="image/image 2.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+        const cityId = getUrlParameter('city_id');
+        const cityName = getUrlParameter('city_name');
+        const loader = document.getElementById('loader');
+
+        const locationDropdown = document.querySelector('.location-dropdown select');
+        if (locationDropdown) {
+            locationDropdown.value = cityId;
+            locationDropdown.disabled = true;
+        }
+
+        const cityDisplay = document.createElement('span');
+        cityDisplay.textContent = cityName;
+        document.querySelector('.location-dropdown').appendChild(cityDisplay);
+
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const vehicleId = getUrlParameter('vehicle_id');
+
+        if (vehicleId) {
+            fetch(`https://velriders.com/api/vehicle-details?vehicle_id=${vehicleId}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.status === "success") {
+                        const vehicle = data.data;
+
+                        document.getElementById('vehicle-name').innerText = vehicle.vehicle_name;
+                        document.getElementById('vehicle-description').innerText = vehicle.description;
+
+                        function setProperty(propertyId, value) {
+                            const propertyElement = document.querySelector(`#${propertyId}`).parentElement;
+                            if (value && value !== "" && value !== null && value !== undefined) {
+                                document.getElementById(propertyId).innerText = value;
+                            } else {
+                                propertyElement.style.display = 'none';
+                            }
+                        }
+
+
+                        setProperty('seating-capacity', `${vehicle.properties.seating_capacity} Seater`);
+                        setProperty('engine-cc', vehicle.properties.engine_cc);
+                        setProperty('transmission', vehicle.properties.transmission_name);
+                        setProperty('mileage', vehicle.properties.mileage);
+                        setProperty('fuel-type', vehicle.properties.fuel_type_name);
+                        setProperty('fuel-capacity', vehicle.properties.fuel_capacity);
+
+                        const carouselInner = document.getElementById('carousel-inner');
+                        vehicle.regular_images.slice(0, 5).forEach((image, index) => {
+                            const col = document.createElement('div');
+                            col.className = index === 0 ? 'carousel-item active' : 'carousel-item';
+                            const img = document.createElement('img');
+                            img.src = image;
+                            img.className = 'd-block w-100 banner-image';
+                            img.alt = `Car Image ${index + 1}`;
+                            col.appendChild(img);
+                            carouselInner.appendChild(col);
+                        });
+
+                        const gallery = document.getElementById('gallery');
+                        vehicle.regular_images.slice(0, 5).forEach((image, index) => {
+                            const col = document.createElement('div');
+                            col.className = 'col-3';
+                            const img = document.createElement('img');
+                            img.src = image;
+                            img.alt = `Gallery Image ${index + 1}`;
+                            img.style.cursor = 'pointer';
+                            img.onclick = () => {
+                                if (window.innerWidth > 550) {
+                                    changeImage(index);
+                                }
+                            };
+                            col.appendChild(img);
+                            gallery.appendChild(col);
+                        });
+                        const featuresContainer = document.getElementById('features');
+                        vehicle.features.forEach(feature => {
+                            const col = document.createElement('div');
+                            col.className = 'col-6 mb-2';
+                            const featureBox = document.createElement('div');
+                            featureBox.className = 'feature-box';
+                            featureBox.innerHTML = `<img src="${feature.icon}" alt="${feature.name}" style="width: 20px; height: 20px;">   ${feature.name}`;
+                            col.appendChild(featureBox);
+                            featuresContainer.appendChild(col);
+                        });
+
+                        loader.style.display = 'none';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching vehicle details:', error);
+                    loader.style.display = 'none';
+                });
+        } else {
+            loader.style.display = 'none';
+        }
+        function changeImage(index) {
+            const carousel = new bootstrap.Carousel(document.getElementById('carouselExample'));
+            carousel.to(index);
+        }
+
+        function redirectToBooking() {
+            const vehicleId = getUrlParameter('vehicle_id');
+            const cityName = getUrlParameter('city_name');
+            const bookingUrl = `index10.html?vehicle_id=${vehicleId}&city_name=${encodeURIComponent(cityName)}`;
+            window.location.href = bookingUrl;
+        }
+    </script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

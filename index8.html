@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style8.css">
+    <link rel="stylesheet" href="navlogin.css">
+    <link rel="stylesheet" href="linenav.css">
+    <title>ContactUs VELRIDERS</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            flex-wrap: wrap;
+            color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: #38A4A6;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #000000;
+        }
+
+        .location-dropdown {
+            display: flex;
+            align-items: center;
+            border: 1px solid #38A4A6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #38A4A6;
+        }
+
+        .location-dropdown select {
+            border: none;
+            outline: none;
+            margin-left: 5px;
+            color: #38A4A6;
+        }
+
+        .location-dropdown img {
+            height: 15px;
+            width: 12px;
+        }
+
+        .login-signup {
+            background-color: #38A4A6;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+
+        @media (max-width: 770px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                background-color: #ffffff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                position: relative;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .upper {
+                flex-direction: column;
+                height: auto;
+                font-size: 13px;
+                gap: 0px;
+            }
+
+            .contact-lower {
+                flex-direction: column;
+            }
+
+            .contact-lower-left {
+                width: 90%;
+            }
+
+            .first {
+                flex-direction: column;
+            }
+
+            .contact-lower-right {
+                width: 90%;
+            }
+
+            .upperleft {
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li><a class="line" href="index.html">Home</a></li>
+
+            <li><a class="line" href="index7.html">About</a></li>
+
+            <li><a class="line" style="color:#38A4A6; font-weight: 500;" href="index8.html">Contact Us</a></li>
+            <div class="location-dropdown" style="background: rgba(128, 128, 128, 0.477);cursor: not-allowed;"
+                class="location-dropdown">
+                <img src="image/location.jpg" alt="location">
+                <select id="city-dropdown"
+                    style="font-size: medium;background:rgba(128, 128, 128, 0); cursor: not-allowed; color:rgb(4, 4, 4);font-size:medium"
+                    disabled>
+                    <option value="1">Ahmedabad</option>
+                    <option value="2">Jamnagar</option>
+                    <option value="3">Gandhinagar</option>
+                    <option value="4">Porbandar</option>
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer; font-size: 14px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" id="profile-name">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px; font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li><a style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px;text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <div class="header-container"></div>
+
+    <div class="mid">
+        <div class="contact-upper">
+            <h1>contact us</h1>
+            <p style="color: rgb(128, 128, 128);">Any question or remarks? Just write us a message!</p>
+        </div>
+        <div class="contact-lower">
+            <div class="contact-lower-left">
+                <div id="pa">
+                    <h2>Contact Information</h2>
+                    <div class=" p33">
+                        <h2>get in touch</h2>
+                        <div class="leftfooter">
+                            <img src="images3/footerlogo.png" alt="" class="img1">
+                            <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                Bazaar,
+                                Satellite,Ahmedabad, Gujarat 380015</p>
+                        </div>
+                        <div class="leftfooter">
+                            <img src="images3/footermail.png" alt="" class="img2">
+                            <p>info@velriders.com</p>
+                        </div>
+                        <div class="leftfooter">
+                            <img src="images3/footercall.png" alt="" class="img3">
+                            <p>082382 24282</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="circle">
+                    <img src="images3/Ellipse 793.png" alt="" id="circle">
+                </div>
+            </div>
+            <div class="contact-lower-right">
+                <div id="lol">
+                    <div class="first">
+                        <div class="col">
+                            <div>First Name</div>
+                            <input type="text">
+                        </div>
+                        <div class="col">
+                            <div>Last Name</div>
+                            <input type="text">
+                        </div>
+                    </div>
+                    <div class="first">
+                        <div class="col">
+                            <div>Email</div>
+                            <input type="email">
+                        </div>
+                        <div class="col">
+                            <div>Phone Number</div>
+                            <input type="number">
+                        </div>
+                    </div>
+                </div>
+                <div class="second">
+                    <div class="second-first">
+                        <div class="col">
+                            <div>Message</div>
+                            <input type="text" placeholder="Write your message..">
+                        </div>
+                        <div id="butt">
+                            <button>Send Message</button>
+                        </div>
+                    </div>
+                </div>
+                <img src="images3/kite.png" alt="" id="kite">
+            </div>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <div id="upper1">
+        <div class="upper">
+            <div class="upperleft">
+                <img src="image1/footerupperleftimg.png" alt="">
+            </div>
+
+            <div class="upperright">
+                <h4>Do you want to stay updated on</h4>
+                <h1>exclusive email offers?</h1>
+                <div class="searchbar">
+                    <img src="image1/upperrightmailimg.png" alt="">
+                    <input type="text" placeholder="Enter your email">
+                    <button style="color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="murga">
+        <div class="murgi">
+            <div class="lower">
+                <div class="p1">
+                    <img src="http://127.0.0.1:5506/image1/footerleftlogo.png" alt="">
+                    <p>Rent your dream ride with Vel Riders – Cars and bikes for every adventure.</p>
+                </div>
+                <div class="p2">
+                    <h2><a style="background-color: transparent;font-size: 24px; text-decoration: none;" href="">helpful
+                            link</a></h2>
+                    <h5><a style="background-color: transparent;font-size: 13.28px; text-decoration: none;"
+                            href="index.html">Home</a></h5>
+                    <h5><a style="background-color: transparent;font-size: 13.28px; text-decoration: none;"
+                            href="index7.html">About</a></h5>
+                    <h5><a style="background-color: transparent;font-size: 13.28px; text-decoration: none;"
+                            href="index8.html">Contact</a></h5>
+                    <h5><a style="background-color: transparent;font-size: 13.28px; text-decoration: none;"
+                            href="Privacy-Policy.html">Privacy and condition</a></h5>
+                    <h5><a style="background-color: transparent;font-size: 13.28px; color: white; text-decoration: none ;"
+                            href="terms.html">Terms & Services</a></h5>
+                </div>
+                <div class="p3">
+                    <h2 style="font-size: 24px;">get in touch</h2>
+                    <div class="leftfooter">
+                        <img src="image1/footerlogo.png" alt="" class="img1">
+                        <a href="https://www.google.com/maps/search/OFFICE+NO.+215,+Iscon+Emporio,+Satellite+Rd,+beside+Star+Bazar+BRTS+Bus+Stop,+Satellite,+Ahmedabad,+Gujarat+380015/@23.0268595,72.512787,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+                            style="text-decoration: none;background-color: transparent;">
+                            <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                Bazaar,
+                                Satellite, Ahmedabad, Gujarat 380015</p>
+                        </a>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image1/footermail.png" alt="" class="img2">
+                        <p>info@velriders.com</p>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image1/footercall.png" alt="" class="img3">
+                        <p>082382 24282</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boder">
+                <div class="lastfooter">
+                    <div class="lastfooterleft">
+                        <a target="_blank" href="https://www.facebook.com/shaileshcarbike"><img
+                                src="data:image/svg+xml,%3csvg%20width='35'%20height='35'%20viewBox='0%200%2035%2035'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_88_20686)'%3e%3cpath%20d='M15.7467%2023.0423V17.8417H14.332V15.9692H15.7467V14.3699C15.7467%2013.1131%2016.5823%2011.959%2018.5078%2011.959C19.2874%2011.959%2019.8639%2012.0316%2019.8639%2012.0316L19.8185%2013.7802C19.8185%2013.7802%2019.2306%2013.7746%2018.589%2013.7746C17.8947%2013.7746%2017.7834%2014.0857%2017.7834%2014.602V15.9692H19.8737L19.7827%2017.8417H17.7834V23.0423H15.7467Z'%20fill='white'/%3e%3c/g%3e%3ccircle%20cx='17.5'%20cy='17.5'%20r='17.0513'%20stroke='white'%20stroke-width='0.897436'/%3e%3cdefs%3e%3cclipPath%20id='clip0_88_20686'%3e%3crect%20width='5.54167'%20height='11.0833'%20fill='white'%20transform='translate(14.332%2011.959)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                                alt=""></a>
+                        <img src="data:image/svg+xml,%3csvg%20width='35'%20height='35'%20viewBox='0%200%2035%2035'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_88_20712)'%3e%3cpath%20d='M24.1525%2013.6452C23.6614%2013.8525%2023.1406%2013.9885%2022.6072%2014.0488C23.1628%2013.7316%2023.5893%2013.2293%2023.7902%2012.6308C23.2621%2012.9294%2022.6843%2013.1397%2022.0818%2013.2528C21.591%2012.7547%2020.8918%2012.4434%2020.118%2012.4434C18.6322%2012.4434%2017.4275%2013.591%2017.4275%2015.0064C17.4275%2015.2073%2017.4514%2015.4029%2017.4972%2015.5905C15.2613%2015.4836%2013.2789%2014.4632%2011.9519%2012.9125C11.7204%2013.2911%2011.5877%2013.7314%2011.5877%2014.2011C11.5877%2015.0903%2012.0627%2015.8748%2012.7846%2016.3344C12.3573%2016.3217%2011.9395%2016.2117%2011.566%2016.0138C11.5658%2016.0245%2011.5658%2016.0353%2011.5658%2016.0461C11.5658%2017.2879%2012.4932%2018.3238%2013.7239%2018.5593C13.3277%2018.6619%2012.9121%2018.677%2012.5089%2018.6032C12.8513%2019.6215%2013.8449%2020.3625%2015.0221%2020.3832C14.1014%2021.0706%2012.9413%2021.4804%2011.6809%2021.4804C11.4637%2021.4804%2011.2495%2021.4682%2011.0391%2021.4446C12.2297%2022.1718%2013.6438%2022.5961%2015.1631%2022.5961C20.1117%2022.5961%2022.8178%2018.6906%2022.8178%2015.3036C22.8178%2015.1924%2022.8152%2015.0819%2022.81%2014.972C23.3367%2014.6093%2023.7913%2014.16%2024.1525%2013.6452Z'%20fill='white'/%3e%3c/g%3e%3ccircle%20cx='17.5'%20cy='17.5'%20r='17.0513'%20stroke='white'%20stroke-width='0.897436'/%3e%3cdefs%3e%3cclipPath%20id='clip0_88_20712'%3e%3crect%20width='13.1134'%20height='10.1993'%20fill='white'%20transform='translate(11.0391%2012.4043)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                            alt="">
+                        <img src="data:image/svg+xml,%3csvg%20width='35'%20height='35'%20viewBox='0%200%2035%2035'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cg%20clip-path='url(%23clip0_90_20743)'%3e%3cpath%20d='M14.1941%2021.9257V15.0404H11.8603V21.9257H14.1941ZM13.0275%2014.0998C13.8413%2014.0998%2014.3479%2013.5711%2014.3479%2012.9104C14.3327%2012.2347%2013.8414%2011.7207%2013.043%2011.7207C12.2447%2011.7207%2011.7227%2012.2347%2011.7227%2012.9104C11.7227%2013.5711%2012.2291%2014.0998%2013.0123%2014.0998H13.0275H13.0275ZM15.4858%2021.9257H17.8196V18.0806C17.8196%2017.8748%2017.8347%2017.6693%2017.8964%2017.5222C18.0651%2017.111%2018.4491%2016.6852%2019.0937%2016.6852C19.9382%2016.6852%2020.2761%2017.3166%2020.2761%2018.2422V21.9257H22.6097V17.9777C22.6097%2015.8628%2021.4583%2014.8788%2019.9229%2014.8788C18.6639%2014.8788%2018.1111%2015.5688%2017.804%2016.0389H17.8196V15.0403H15.4859C15.5165%2015.6863%2015.4859%2021.9256%2015.4859%2021.9256L15.4858%2021.9257Z'%20fill='white'/%3e%3c/g%3e%3ccircle%20cx='17.5'%20cy='17.5'%20r='17.0513'%20stroke='white'%20stroke-width='0.897436'/%3e%3cdefs%3e%3cclipPath%20id='clip0_90_20743'%3e%3crect%20width='10.8853'%20height='10.205'%20fill='white'%20transform='translate(11.7227%2011.7207)'/%3e%3c/clipPath%3e%3c/defs%3e%3c/svg%3e"
+                            alt="">
+                        <a target="_blank" href="https://www.instagram.com/velriders/"><img
+                                src="data:image/svg+xml,%3csvg%20width='35'%20height='35'%20viewBox='0%200%2035%2035'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3ccircle%20cx='17.5'%20cy='17.5'%20r='17.0513'%20stroke='white'%20stroke-width='0.897436'/%3e%3cpath%20d='M14.3058%2010.3594H20.0213C22.1986%2010.3594%2023.9677%2012.1285%2023.9677%2014.3058V20.0213C23.9677%2021.0679%2023.5519%2022.0717%2022.8118%2022.8118C22.0717%2023.5519%2021.0679%2023.9677%2020.0213%2023.9677H14.3058C12.1285%2023.9677%2010.3594%2022.1986%2010.3594%2020.0213V14.3058C10.3594%2013.2591%2010.7752%2012.2554%2011.5153%2011.5153C12.2554%2010.7752%2013.2591%2010.3594%2014.3058%2010.3594ZM14.1697%2011.7202C13.5201%2011.7202%2012.897%2011.9783%2012.4377%2012.4377C11.9783%2012.897%2011.7202%2013.5201%2011.7202%2014.1697V20.1574C11.7202%2021.5114%2012.8157%2022.6069%2014.1697%2022.6069H20.1574C20.807%2022.6069%2021.4301%2022.3488%2021.8894%2021.8894C22.3488%2021.4301%2022.6069%2020.807%2022.6069%2020.1574V14.1697C22.6069%2012.8157%2021.5114%2011.7202%2020.1574%2011.7202H14.1697ZM20.7357%2012.7408C20.9613%2012.7408%2021.1776%2012.8304%2021.3371%2012.9899C21.4966%2013.1494%2021.5863%2013.3658%2021.5863%2013.5914C21.5863%2013.8169%2021.4966%2014.0333%2021.3371%2014.1928C21.1776%2014.3523%2020.9613%2014.4419%2020.7357%2014.4419C20.5102%2014.4419%2020.2938%2014.3523%2020.1343%2014.1928C19.9748%2014.0333%2019.8852%2013.8169%2019.8852%2013.5914C19.8852%2013.3658%2019.9748%2013.1494%2020.1343%2012.9899C20.2938%2012.8304%2020.5102%2012.7408%2020.7357%2012.7408ZM17.1635%2013.7615C18.0658%2013.7615%2018.9312%2014.1199%2019.5692%2014.7579C20.2072%2015.3959%2020.5656%2016.2613%2020.5656%2017.1635C20.5656%2018.0658%2020.2072%2018.9312%2019.5692%2019.5692C18.9312%2020.2072%2018.0658%2020.5656%2017.1635%2020.5656C16.2613%2020.5656%2015.3959%2020.2072%2014.7579%2019.5692C14.1199%2018.9312%2013.7615%2018.0658%2013.7615%2017.1635C13.7615%2016.2613%2014.1199%2015.3959%2014.7579%2014.7579C15.3959%2014.1199%2016.2613%2013.7615%2017.1635%2013.7615ZM17.1635%2015.1223C16.6222%2015.1223%2016.103%2015.3374%2015.7202%2015.7202C15.3374%2016.103%2015.1223%2016.6222%2015.1223%2017.1635C15.1223%2017.7049%2015.3374%2018.2241%2015.7202%2018.6069C16.103%2018.9897%2016.6222%2019.2048%2017.1635%2019.2048C17.7049%2019.2048%2018.2241%2018.9897%2018.6069%2018.6069C18.9897%2018.2241%2019.2048%2017.7049%2019.2048%2017.1635C19.2048%2016.6222%2018.9897%2016.103%2018.6069%2015.7202C18.2241%2015.3374%2017.7049%2015.1223%2017.1635%2015.1223Z'%20fill='white'/%3e%3c/svg%3e"
+                                alt=""></a>
+                    </div>
+                    <div class="lastfooterright">
+                        <p>download the app by clicking the link below: </p>
+                        <div>
+                            <a href="https://play.google.com/store/apps/details?id=com.imd.velriders"><img
+                                    src="image1/googleplay.png" alt=""></a>
+                            <img src="image1/appstore.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        window.onload = function () {
+            const cityDropdown = document.getElementById('city-dropdown');
+
+
+            const savedCityId = localStorage.getItem('selectedCityId');
+            const savedCityName = localStorage.getItem('selectedCityName');
+
+            if (savedCityId && savedCityName) {
+                let cityExists = false;
+                for (let option of cityDropdown.options) {
+                    if (option.value === savedCityId) {
+                        option.selected = true;
+                        cityExists = true;
+                        break;
+                    }
+                }
+
+
+                if (!cityExists) {
+                    const newOption = document.createElement('option');
+                    newOption.value = savedCityId;
+                    newOption.textContent = savedCityName;
+                    newOption.selected = true;
+                    cityDropdown.appendChild(newOption);
+                }
+            }
+
+
+            cityDropdown.addEventListener('change', function () {
+                const selectedCityId = this.value;
+                const selectedCityName = this.options[this.selectedIndex].text;
+                localStorage.setItem('selectedCityId', selectedCityId);
+                localStorage.setItem('selectedCityName', selectedCityName);
+            });
+        };
+    </script>
+
+    <script src="/script8.js"></script>
+    <script>
+        const menuIcon = document.querySelector('.menu-icon');
+        const navLinks = document.querySelector('.nav-links');
+        menuIcon.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+    <script src="profile.js"></script>
+</body>
+
+</html>

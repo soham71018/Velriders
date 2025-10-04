@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            font-family: "Poppins", serif;
+            font-weight: normal;
+        }
+
+        body {
+            font-family: sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            background-color: #ffffff;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+            background-color: #ffffff;
+            flex-wrap: wrap;
+            color: #000;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+           box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+           }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 70px;
+            margin-right: 10px;
+        }
+
+        .logo span {
+            color: #38A4A6;
+            font-weight: 600;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links li a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+        }
+
+        .location-dropdown {
+            display: flex;
+            align-items: center;
+            border: 1px solid #38A4A6;
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #38A4A6;
+        }
+
+        .location-dropdown select {
+            border: none;
+            outline: none;
+            margin-left: 5px;
+            color: #38A4A6;
+        }
+
+        .location-dropdown img {
+            height: 15px;
+            width: 12px;
+        }
+
+        .login-signup {
+            background-color: #38A4A6;
+            color: white;
+            padding: 8px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                padding: 10px 0;
+                background-color: #ffffff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .nav-links li {
+                margin: 5px 0;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                position: relative;
+                position: sticky;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .upper {
+                flex-direction: column;
+                height: auto;
+                font-size: 13px;
+                gap: 0px;
+            }
+        }
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .otp-box {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.6);
+            width: 350px;
+            max-width: 90%;
+            text-align: center;
+        }
+
+        .otp-inputs {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .otp-input {
+            width: 40px;
+            height: 40px;
+            margin: 0 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 16px;
+            background-color: #80808036;
+        }
+
+        .resend {
+            margin-top: 10px;
+            font-size: small;
+        }
+
+        .verify-btn {
+            background-color: #1abc9c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 400px) {
+            .otp-input {
+                width: 30px;
+                height: 30px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">&#9776;</div>
+        <ul class="nav-links">
+            <li><a href="#"></a></li>
+            <li></li>
+            <li><a href="#"></a></li>
+            <li></li>
+            <li><a href="#"></a></li>
+            <li></li>
+            <li><a href="#"></a></li>
+            <li></li>
+            <li><a href="#"></a></li>
+            <div class="location-dropdown">
+                <img src="image/location.jpg" alt="location">
+                <select id="city-dropdown" style="font-size: medium;">
+                    <option value="ahmedabad">Ahmedabad</option>
+                    <option value="jamnagar">Jamnagar</option>
+                    <option value="gandhinagar">Gandhinagar</option>
+                    <option value="porbandar">Porbandar</option>
+                </select>
+            </div>
+            <li></li>
+            <li><a href="#">&nbsp;&nbsp;</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <div class="otp-box">
+            <h4>Login with OTP</h4>
+            <h2>OTP Verification</h2>
+            <p style="color: rgba(0, 0, 0, 0.7)"> We will send you one time password </p>
+            <div class="otp-inputs">
+                <input type="text" class="otp-input" maxlength="1" required>
+                <input type="text" class="otp-input" maxlength="1" required>
+                <input type="text" class="otp-input" maxlength="1" required>
+                <input type="text" class="otp-input" maxlength="1" required>
+                <input type="text" class="otp-input" maxlength="1" required>
+                <input type="text" class="otp-input" maxlength="1" required>
+            </div>
+            <div class="resend" style="color: rgba(0, 0, 0, 0.7);">Didn't get OTP yet?<br> <a href="#" class="sendagain"
+                    style="color: rgba(56, 164, 166, 1);">Send again</a></div>
+            <button class="verify-btn">Verify</button>
+        </div>
+    </div>
+
+    <script>
+        const otpInputs = document.querySelectorAll('.otp-input');
+        const verifyButton = document.querySelector('.verify-btn');
+
+        otpInputs.forEach((input, index) => {
+            input.addEventListener('input', (e) => {
+                
+                if (!/^[0-9]*$/.test(e.target.value)) {
+                    e.target.value = '';
+                    return;
+                }
+
+               
+                if (e.target.value.length === 1 && index < otpInputs.length - 1) {
+                    otpInputs[index + 1].focus();
+                }
+               
+                if (e.target.value.length === 0 && index > 0) {
+                    otpInputs[index - 1].focus();
+                }
+            });
+        });
+
+        verifyButton.addEventListener('click', () => {
+            let allFilled = true;
+            otpInputs.forEach(input => {
+                if (input.value.length === 0) {
+                    allFilled = false;
+                }
+            });
+
+            if (allFilled) {
+              
+                window.location.href = 'index6.html';
+            } else {
+               
+                alert('Please fill all OTP fields.');
+            }
+        });
+    </script>
+</body>
+
+</html>

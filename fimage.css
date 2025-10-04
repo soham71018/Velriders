@@ -1,0 +1,15 @@
+
+.circle{
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    border: 1px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.lastfooterleft{
+    display: flex;
+    gap: 5px;
+}

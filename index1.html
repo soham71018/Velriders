@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View-all VELRIDERS</title>
+    <link rel="icon" type="image/x-icon" href="image/icon1.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style1.css">
+    <link rel="stylesheet" href="navlogin.css">
+    <link rel="stylesheet" href="footer.css">
+    <link rel="stylesheet" href="fimage.css">
+    <link rel="stylesheet" href="linenav.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    </style>
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html"><img src="image1/logo.jpg" alt="Logo"></a>
+        </div>
+        <div class="menu-icon">☰</div>
+        <ul class="nav-links">
+            <li><a class="line" href="index.html">Home</a></li>
+            <li><a class="line" href="index7.html">About</a></li>
+            <li><a class="line" href="index8.html">Contact Us</a></li>
+            <div class="location-dropdown">
+                <img src="image1/location.jpg" alt="location">
+                <select style="cursor: pointer;" id="city-dropdown" style="font-size: medium;">
+                    <option value="1">Ahmedabad</option>
+                    <option value="2">Jamnagar</option>
+                    <option value="3">Gandhinagar</option>
+                    <option value="4">Porbandar</option>
+                    <option value="5">Dwarka</option>
+
+                </select>
+            </div>
+            <a href="index4.html" id="auth-link">
+                <button id="auth-btn"
+                    style="background-color: #38A4A6; color: white; padding: 8px 15px; border: none; border-radius: 5px; cursor: pointer;font-size: 14px;">Login
+                    | Sign up</button>
+            </a>
+            <div class="profile" id="profile-menu" style="display: none;">
+                <span class="profile-name" style="text-transform: capitalize;" id="profile-name">User</span>
+                <img src="default-avatar.png" id="profile-img" class="profile-img" alt="Profile">
+                <div class="dropdown" id="dropdown-menu">
+                    <label style="background-color: #848484a4; color: white; border-radius: 5px; font-size: small;"
+                        for="file-upload">Change Profile Photo</label>
+                    <input type="file" id="file-upload" accept="image/*">
+                    <input type="text" id="edit-name" class="edit-name" placeholder="Enter new name">
+                    <button class="save-btn" id="save-name-btn">Save</button>
+                    <button class="logout-btn" id="logout-btn">Logout</button>
+                    <li><a style="background-color: #848484a4; color: white; border-radius: 5px;font-size: small; margin-top: 10px; text-align: center;"
+                            href="booking.html">Your Booking</a></li>
+                </div>
+            </div>
+        </ul>
+    </nav>
+    <div id="loading" style="text-align: center;">Loading...</div>
+
+    <div class="header-container"></div>
+    <div class="container">
+        <div class="filter-section">
+            <h3>Select Vehicle</h3>
+            <div class="selectcar">
+                <select id="vehicle-type" class="drop">
+                    <option value="">All Types</option>
+                    <option value="car">Car</option>
+                    <option value="bike">Bike</option>
+                </select>
+            </div>
+            <br>
+            <div>
+                <label for="from"><img style="width: 28%;" src="image/calendar.png" alt="">  From</label>
+                <input
+                    style="display: block; width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+                    type="datetime-local" id="from" onclick="this.showPicker()" onfocus="this.showPicker()">
+            </div>
+            <div>
+                <label for="to"><img style="width: 41%;" src="image/calendar.png" alt="">  To</label>
+                <input
+                    style="display: block; width: 100%; margin: 10px 0; padding: 10px; border: 1px solid #ccc; border-radius: 5px;"
+                    type="datetime-local" id="to" onclick="this.showPicker()" onfocus="this.showPicker()">
+            </div>
+            <br><br>
+            <h4>Select Catageory</h4>
+            <select id="vehicle-model" class="drop">
+                <option value="">All Models</option>
+            </select>
+            <br><br>
+
+            <h4>Fuel Type</h4>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Petrol" id="flexCheckDefaultPetrol"
+                    data-value="Petrol">
+                <label class="form-check-label" for="flexCheckDefaultPetrol">Petrol</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Diesel" id="flexCheckDefaultDiesel"
+                    data-value="Diesel">
+                <label class="form-check-label" for="flexCheckDefaultDiesel">Diesel</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="LPG" id="flexCheckDefaultLPG" data-value="LPG">
+                <label class="form-check-label" for="flexCheckDefaultLPG">LPG</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" value="Petrol/CNG" id="flexCheckDefaultPetrolCNG"
+                    data-value="Petrol/CNG">
+                <label class="form-check-label" for="flexCheckDefaultPetrolCNG">Petrol/CNG</label>
+            </div>
+            <button id="apply-filter"
+                style="margin-top: 15px; padding: 10px; background: #38A4A6; border-radius: 5px; color: white; width: 100%; border: none; cursor: pointer;">Apply
+                Filter</button>
+        </div>
+
+
+
+
+
+        <div class="car-grid" id="car-grid">
+
+
+
+
+        </div>
+    </div>
+    <div id="pagination" class="pagination">
+        <button id="prev-page" class="page-button" disabled>Previous</button>
+        <span id="page-numbers"></span>
+        <button id="next-page" class="page-button">Next</button>
+    </div>
+    <br>
+
+
+    <!-- Footer -->
+    <div id="upper1">
+        <div class="upper">
+            <div class="upperleft">
+                <img src="image1/footerupperleftimg.png" alt="">
+            </div>
+            <div class="upperright">
+                <h4>Do you want to stay updated on</h4>
+                <h1 style="text-transform: lowercase;">exclusive email offers?</h1>
+                <div class="searchbar">
+                    <img src="image1/upperrightmailimg.png" alt="">
+                    <input type="text" placeholder="Enter your email">
+                    <button style="color: white; cursor: pointer;">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="murga">
+        <div class="murgi">
+            <div class="lower">
+                <div class="p1">
+                    <img src="image/footerleftlogo.svg" alt="">
+                    <p>Rent your dream ride with Vel Riders – Cars and bikes for every adventure.</p>
+                </div>
+                <div class="p2">
+                    <h2><a style="background-color: transparent; text-decoration: none;font-size:24px ;" href="">helpful
+                            link</a></h2>
+                    <h5><a style="background-color: transparent; text-decoration: none;font-size:13.28px ;"
+                            href="index.html">Home</a></h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;font-size:13.28px ;"
+                            href="index7.html">About</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;font-size:13.28px ;"
+                            href="index8.html">Contact</a>
+                    </h5>
+                    <h5><a style="background-color: transparent; text-decoration: none;font-size:13.28px ;"
+                            href="Privacy-Policy.html">Privacy Policy</a></h5>
+                    <h5><a style="background-color: transparent; color: white; text-decoration: none;font-size: 13.28px;"
+                            href="terms.html">Terms & Condition</a></h5>
+                </div>
+                <div class="p3">
+                    <h2 style="font-size: 24px;">get in touch</h2>
+                    <div class="leftfooter">
+                        <img src="image1/footerlogo.png" alt="" class="img1">
+                        <a href="https://www.google.com/maps/search/OFFICE+NO.+215,+Iscon+Emporio,+Satellite+Rd,+beside+Star+Bazar+BRTS+Bus+Stop,+Satellite,+Ahmedabad,+Gujarat+380015/@23.0268595,72.512787,15z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI1MDIyNi4xIKXMDSoASAFQAw%3D%3D"
+                            style="text-decoration: none;background-color: transparent;">
+                            <p>SHOP NO.232, Someshwar Complex, BRTS STOP, Satellite Rd, opp. Iscon Emporio, nr Star
+                                Bazaar, Satellite, Ahmedabad, Gujarat 380015</p>
+                        </a>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image1/footermail.png" alt="" class="img2">
+                        <p>info@velriders.com</p>
+                    </div>
+                    <div class="leftfooter">
+                        <img src="image/footercall2.svg" alt="" class="img3">
+                        <p>082382 24282</p>
+                    </div>
+                </div>
+            </div>
+            <div class="boder">
+                <div class="lastfooter">
+                    <div class="lastfooterleft">
+                        <a target="_blank" href="https://www.facebook.com/shaileshcarbike" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/facebookfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/twiteerfinal.svg" alt="">
+                            </div>
+                        </a>
+                        <a target="_blank" href="https://www.instagram.com/velriders/" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instagramfinal.svg" alt="">
+                            </div>
+                        </a>
+
+                        <a target="_blank" href="" style="background-color: transparent;">
+                            <div class="circle">
+                                <img src="image/instafinal.svg" alt="">
+                            </div>
+                        </a>
+                    </div>
+                    <div class="lastfooterright">
+                        <p>download the app by clicking the link below: </p>
+                        <div>
+                            <a style="background: transparent;"
+                                href="https://play.google.com/store/apps/details?id=com.imd.velriders"><img
+                                    src="image/image 1.svg" alt=""></a>
+                            <img src="image/image 2.svg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let allVehicles = [];
+        let allModels = [];
+        let currentPage = 1;
+        const vehiclesPerPage = 6;
+
+        function getUrlParameter(name) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(name);
+        }
+
+        const cityId = getUrlParameter('city_id') || "1";
+        const cityName = getUrlParameter('city_name');
+        const startDate = getUrlParameter('start_date');
+        const endDate = getUrlParameter('end_date');
+        const typeId = getUrlParameter('type_id');
+
+        const cityDropdown = document.getElementById('city-dropdown');
+        if (cityDropdown) {
+            cityDropdown.value = cityId;
+        }
+
+        async function fetchVehicles(vehicleTypeId, vehicleModelId, selectedFuelTypes, startDate, endDate, cityId) {
+            document.getElementById('loading').style.display = 'block';
+            try {
+                let apiUrl = `https://velriders.com/api/vehicles?city_id=${cityId}&is_deleted=0`;
+                if (vehicleTypeId) apiUrl += `&type_id=${vehicleTypeId}`;
+                if (vehicleModelId) apiUrl += `&model_id=${vehicleModelId}`;
+                if (startDate) apiUrl += `&start_date=${encodeURIComponent(startDate)}`;
+                if (endDate) apiUrl += `&end_date=${encodeURIComponent(endDate)}`;
+
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+                const responseData = await response.json();
+                allVehicles = responseData.data.filter(vehicle => vehicle.convenience_fees !== '99.00');
+
+                if (selectedFuelTypes.length > 0) {
+                    allVehicles = allVehicles.filter(vehicle => {
+                        if (!vehicle.properties?.fuel_type_name && vehicle.type_id === 2) {
+                            return selectedFuelTypes.includes('Petrol');
+                        }
+                        return selectedFuelTypes.some(fuel =>
+                            fuel.toLowerCase() === (vehicle.properties?.fuel_type_name || '').toLowerCase()
+                        );
+                    });
+                }
+
+                displayVehicles(allVehicles);
+            } catch (error) {
+                console.error('Fetch error:', error);
+                alert('Failed to load vehicles. Please try again later.');
+            } finally {
+                document.getElementById('loading').style.display = 'none';
+            }
+        }
+
+        async function fetchVehicleModels(vehicleTypeId) {
+            try {
+                const vehicleModelSelect = document.getElementById('vehicle-model');
+                vehicleModelSelect.innerHTML = '<option value="">All Models</option>';
+
+                if (!vehicleTypeId) {
+                    const carModelsResponse = await fetch(`https://velriders.com/api/models?vehicle_type_id=1`);
+                    const bikeModelsResponse = await fetch(`https://velriders.com/api/models?vehicle_type_id=2`);
+                    if (!carModelsResponse.ok || !bikeModelsResponse.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const carModelsData = await carModelsResponse.json();
+                    const bikeModelsData = await bikeModelsResponse.json();
+                    allModels = [...carModelsData.data, ...bikeModelsData.data];
+                } else {
+                    const response = await fetch(`https://velriders.com/api/models?vehicle_type_id=${vehicleTypeId}`);
+                    if (!response.ok) throw new Error(`Network response was not ok: ${response.statusText}`);
+                    const responseData = await response.json();
+                    allModels = responseData.data;
+                }
+
+                allModels.forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model.model_id;
+                    option.textContent = model.name;
+                    vehicleModelSelect.appendChild(option);
+                });
+
+                return allModels;
+            } catch (error) {
+                console.error('Error fetching models:', error);
+                return [];
+            }
+        }
+
+        function displayVehicles(vehicles) {
+            window.scrollTo(0, 0);
+            const carGrid = document.getElementById('car-grid');
+            carGrid.innerHTML = '';
+            if (vehicles.length === 0) {
+                carGrid.innerHTML = '<p>No vehicles found.</p>';
+                return;
+            }
+            const totalPages = Math.ceil(vehicles.length / vehiclesPerPage);
+            const startIndex = (currentPage - 1) * vehiclesPerPage;
+            const endIndex = startIndex + vehiclesPerPage;
+            const vehiclesToDisplay = vehicles.slice(startIndex, endIndex);
+            vehiclesToDisplay.forEach(vehicle => {
+                const carCard = document.createElement('div');
+                carCard.classList.add('car-card');
+                const properties = vehicle.properties || {};
+                const propertiesString = `${properties.transmission_name || 'N/A'} | ${properties.seating_capacity || 'N/A'} | ${properties.fuel_type_name || 'N/A'}`;
+                carCard.innerHTML = `
+            <img src="${vehicle.cutout_image}" alt="${vehicle.vehicle_name}">
+            <h3>${vehicle.vehicle_name} <span style="color:#666; font-size: medium;">${vehicle.price_pr_hour}</span></h3>
+            <p>${propertiesString}</p>
+            <br>
+            <button onclick="redirectToDetails(${vehicle.vehicle_id})">Rent Now</button>
+        `;
+                carGrid.appendChild(carCard);
+
+                carCard.classList.add('shine-effect');
+                setTimeout(() => {
+                    carCard.classList.remove('shine-effect');
+                }, 1500);
+            });
+            updatePagination(totalPages);
+        }
+
+        function redirectToDetails(vehicleId) {
+            const selectedCityId = document.getElementById('city-dropdown').value;
+            const selectedCityName = document.getElementById('city-dropdown').options[document.getElementById('city-dropdown').selectedIndex].text;
+            window.location.href = `vehicle-details.html?vehicle_id=${vehicleId}&city_id=${selectedCityId}&city_name=${encodeURIComponent(selectedCityName)}`;
+        }
+
+        function updatePagination(totalPages) {
+            const pageNumbersContainer = document.getElementById('page-numbers');
+            pageNumbersContainer.innerHTML = '';
+            for (let i = 1; i <= totalPages; i++) {
+                const pageButton = document.createElement('button');
+                pageButton.textContent = i;
+                pageButton.classList.add('page-number');
+                if (i === currentPage) pageButton.classList.add('active');
+                pageButton.onclick = () => {
+                    currentPage = i;
+                    displayVehicles(allVehicles);
+                };
+                pageNumbersContainer.appendChild(pageButton);
+            }
+            document.getElementById('prev-page').disabled = currentPage === 1;
+            document.getElementById('next-page').disabled = currentPage === totalPages;
+        }
+
+        document.getElementById('prev-page').onclick = () => {
+            if (currentPage > 1) {
+                currentPage--;
+                displayVehicles(allVehicles);
+            }
+        };
+
+        document.getElementById('next-page').onclick = () => {
+            const totalPages = Math.ceil(allVehicles.length / vehiclesPerPage);
+            if (currentPage < totalPages) {
+                currentPage++;
+                displayVehicles(allVehicles);
+            }
+        };
+
+        function applyFilters() {
+            const vehicleType = document.getElementById('vehicle-type').value;
+            const vehicleModel = document.getElementById('vehicle-model').value;
+            const vehicleTypeId = vehicleType === 'car' ? 1 : vehicleType === 'bike' ? 2 : '';
+            const selectedFuelTypes = Array.from(document.querySelectorAll('.form-check-input:checked')).map(checkbox => checkbox.getAttribute('data-value'));
+            const startDate = document.getElementById('from').value;
+            const endDate = document.getElementById('to').value;
+            const selectedCityId = document.getElementById('city-dropdown').value;
+
+
+            currentPage = 1;
+
+            fetchVehicles(vehicleTypeId, vehicleModel, selectedFuelTypes, startDate, endDate, selectedCityId);
+        }
+        document.getElementById('apply-filter').addEventListener('click', applyFilters);
+
+        document.getElementById('vehicle-type').addEventListener('change', async (event) => {
+            const vehicleType = event.target.value;
+            const vehicleTypeId = vehicleType === 'car' ? 1 : vehicleType === 'bike' ? 2 : '';
+            await fetchVehicleModels(vehicleTypeId);
+        });
+
+        document.addEventListener("DOMContentLoaded", function () {
+            const fromInput = document.getElementById('from');
+            const toInput = document.getElementById('to');
+            const vehicleTypeSelect = document.getElementById('vehicle-type');
+
+            const now = new Date();
+            const year = now.getFullYear();
+            const month = String(now.getMonth() + 1).padStart(2, '0');
+            const day = String(now.getDate()).padStart(2, '0');
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const currentDateTime = `${year}-${month}-${day}T${hours}:${minutes}`;
+            fromInput.setAttribute('min', currentDateTime);
+            toInput.setAttribute('min', currentDateTime);
+            fromInput.addEventListener('change', function () {
+                toInput.setAttribute('min', fromInput.value);
+            });
+
+            if (startDate) fromInput.value = startDate;
+            if (endDate) toInput.value = endDate;
+            if (typeId) {
+                vehicleTypeSelect.value = typeId === '1' ? 'car' : typeId === '2' ? 'bike' : '';
+                fetchVehicleModels(typeId);
+            } else {
+                fetchVehicleModels('');
+            }
+
+            cityDropdown.addEventListener("change", function () {
+                const selectedCityId = this.value;
+                const selectedCityName = this.options[this.selectedIndex].text;
+                let newUrl = `index1.html?city_id=${selectedCityId}&city_name=${encodeURIComponent(selectedCityName)}`;
+
+                const vehicleType = document.getElementById('vehicle-type').value;
+                const startDate = document.getElementById('from').value;
+                const endDate = document.getElementById('to').value;
+                if (vehicleType) newUrl += `&type_id=${vehicleType === 'car' ? 1 : vehicleType === 'bike' ? 2 : ''}`;
+                if (startDate) newUrl += `&start_date=${encodeURIComponent(startDate)}`;
+                if (endDate) newUrl += `&end_date=${encodeURIComponent(endDate)}`;
+
+                window.location.href = newUrl;
+            });
+
+            const vehicleTypeId = typeId || '';
+            const vehicleModelId = '';
+            const selectedFuelTypes = [];
+            fetchVehicles(vehicleTypeId, vehicleModelId, selectedFuelTypes, startDate, endDate, cityId);
+        });
+    </script>
+    <script src="profile.js"></script>
+    <script src="script9.js"></script>
+</body>
+
+</html>
